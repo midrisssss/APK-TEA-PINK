@@ -45,8 +45,10 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         LOGIN_BTN = new javax.swing.JButton();
         LOGIN_TEXT = new javax.swing.JTextField();
+        lbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TEA-PINK");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -72,19 +74,33 @@ public class Login extends javax.swing.JFrame {
         LOGIN_TEXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         LOGIN_TEXT.setText("USERNAME");
         LOGIN_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LOGIN_TEXT.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                LOGIN_TEXTInputMethodTextChanged(evt);
+            }
+        });
+
+        lbl1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lbl1.setForeground(java.awt.Color.black);
+        lbl1.setText("label");
+        lbl1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(312, 312, 312)
+                .addContainerGap()
+                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
                     .addComponent(LOGIN_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LOGIN_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TP_LBL))
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,16 +111,24 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(LOGIN_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                .addComponent(LOGIN_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LOGIN_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,13 +144,16 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         USERNAME = LOGIN_TEXT.getText();
         ALL_USERNAME.add(USERNAME);
-        int input = JOptionPane.showConfirmDialog(null, ("SELAMAT DATANG " + USERNAME), "Message", JOptionPane.YES_OPTION);
+        int input = JOptionPane.showConfirmDialog(null, ("SELAMAT DATANG " + USERNAME + "!"),"Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE );
         if(input == 0){
-            /**
-             * PINDAH HALAMAN
-             */
+            
         }
     }//GEN-LAST:event_LOGIN_BTNActionPerformed
+
+    private void LOGIN_TEXTInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LOGIN_TEXTInputMethodTextChanged
+        // TODO add your handling code here:
+        LOGIN_TEXT.setText("");
+    }//GEN-LAST:event_LOGIN_TEXTInputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -170,5 +197,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel TP_LBL;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl1;
     // End of variables declaration//GEN-END:variables
 }

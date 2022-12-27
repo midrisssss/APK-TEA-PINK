@@ -6,7 +6,9 @@ package com.mycompany.tea.pink;
 
 /**
  *
- * @author Asus
+ * @author MUHAMMAD IDRIS
+ * @author TARA ALMANDA
+ * @author IVANKA AUDY IKHWAN
  */
 public class Opening_TeaPink extends javax.swing.JFrame {
 
@@ -32,6 +34,7 @@ public class Opening_TeaPink extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TEA-PINK");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
