@@ -14,31 +14,21 @@ import java.awt.Color;
  */
 public class TYPEE extends javax.swing.JFrame {
 
-    String LIRIK_LAGU = null;
-    String[] LAGU = null;
+    String LIRIK_LAGU = null; // LIRIK LAGU FULL
+    String[] LAGU = null; // LIRIK LAGU AFTER SPLIT
+    String LAGU_ROW1 = "", LAGU_ROW2 = "", LAGU_ROW3 = "", LAGU_ROW4 = "", LAGU_ROW5 = "", LAGU_ROW6 = "", LAGU_ROW7 = ""; //LAGU BARIS KE 1-7
+    int TOTAL_WORDS = 0; // TOTAL KATA dlm ARRAY
+    int TOTAL_LETTER = 0; // TOTAL HURUF dlm ARRAY
+    int MUSIC_ON_OFF = 0; // MUSIC
 
     int i = 0, j = 0, k = 0;
 
-    /**
-     *
-     * Creates new form TYPEE
-     */
     void LAGU() {
+
         int LAGU_RANDOM = (int) (Math.random() * 5);
 
-        String a = """
-                         Kau bisa patahkan kakiku, Tapi tidak mimpi-mimpiku, 
-                         Kau bisa lumpuhkan tanganku, Tapi tidak mimpi-mimpiku, 
-                         Kau bisa merebut senyumku, Tapi sungguh tak akan lama, 
-                         Kau bisa merobek hatiku, Tapi aku tahu obatnya.""";
-
-        String b = """
-                         Berdiri ku memutar waktu, Teringat kamu yang dulu, Ada 
-                         disampingku setiap hari, Jadi sandaran ternyaman, Saat 
-                         ku lemah saat ku lelah, Tersadar kutinggal sendiri, 
-                         Merenungi semua yang tak mungkin, Bisa kuputarkan kembali 
-                         seperti dulu, Kubahagia tapi semuanya hilang, tanpa sebab, 
-                         Kau hentikan semuanya.""";
+        String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
+        String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia .tapi .semuanya .hilang, .tanpa .sebab, .Kau .hentikan .semuanya";
 
         switch (LAGU_RANDOM) {
             case 0, 2, 4 ->
@@ -48,18 +38,97 @@ public class TYPEE extends javax.swing.JFrame {
             default -> {
             }
         }
-        LAGU = LIRIK_LAGU.split(" ");
-        
-        
-        TEXT_LABEL00.setText("kamuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
 
-        // TYPEE_TEXTAREA.setText(LIRIK_LAGU);
+        LAGU = LIRIK_LAGU.split("\\.");
+        TOTAL_WORDS = LAGU.length;
+        TOTAL_LETTER = LIRIK_LAGU.length();
+
+        System.out.println(TOTAL_LETTER + " " + TOTAL_WORDS + " " + LIRIK_LAGU);
+        int DISPLAY_WORD1 = 0, DISPLAY_WORD2 = 0, DISPLAY_WORD3 = 0, DISPLAY_WORD4 = 0, DISPLAY_WORD5 = 0, DISPLAY_WORD6 = 0, DISPLAY_INDEX1 = 0, DISPLAY_INDEX2 = 0, DISPLAY_INDEX3 = 0, DISPLAY_INDEX4 = 0, DISPLAY_INDEX5 = 0, DISPLAY_INDEX6 = 0, DISPLAY_INDEX7 = 0, DISPLAY_WORD7 = 0;
+
+        for (int col = 0; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX1 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD1++;
+                DISPLAY_INDEX1 += LAGU[col].length();
+                LAGU_ROW1 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD1; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX2 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD2++;
+                DISPLAY_INDEX2 += LAGU[col].length();
+                LAGU_ROW2 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD2; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX3 + LAGU[col].length()) <= 36) { // 38 = 38 kolom di label text dalam 1 baris
+                DISPLAY_WORD3++;
+                DISPLAY_INDEX3 += LAGU[col].length();
+                LAGU_ROW3 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD3; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX4 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD4++;
+                DISPLAY_INDEX4 += LAGU[col].length();
+                LAGU_ROW4 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD4; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX5 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD5++;
+                DISPLAY_INDEX5 += LAGU[col].length();
+                LAGU_ROW5 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD5; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX6 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD6++;
+                DISPLAY_INDEX6 += LAGU[col].length();
+                LAGU_ROW6 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+        for (int col = DISPLAY_WORD6; col < TOTAL_WORDS; col++) {
+            if ((DISPLAY_INDEX7 + LAGU[col].length()) <= 36) {
+                DISPLAY_WORD7++;
+                DISPLAY_INDEX7 += LAGU[col].length();
+                LAGU_ROW7 += LAGU[col];
+            } else {
+                break;
+            }
+        }
+
+        System.out.println("DISPLAY INDEX " + DISPLAY_INDEX1 + "\n");
+        System.out.println("DISPLAY INDEX " + DISPLAY_INDEX2 + "\n");
+
+        TEXT_LABEL1.setText(LAGU_ROW1);
+        TEXT_LABEL2.setText(LAGU_ROW2);
+        TEXT_LABEL3.setText("huuuuu");
+        TEXT_LABEL4.setText(LAGU_ROW4);
+        TEXT_LABEL5.setText("aaaaaaa");
+        TEXT_LABEL6.setText(LAGU_ROW6);
+        TEXT_LABEL7.setText(LAGU_ROW7);
     }
 
+    /**
+     *
+     * Creates new form TYPEE
+     */
     public TYPEE() {
         initComponents();
         LAGU();
-
     }
 
     /**
@@ -85,36 +154,34 @@ public class TYPEE extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        TEXT_PANEL1 = new javax.swing.JPanel();
+        TEXT_LABEL1 = new javax.swing.JLabel();
+        TEXT_PANEL2 = new javax.swing.JPanel();
+        TEXT_LABEL2 = new javax.swing.JLabel();
+        TEXT_PANEL3 = new javax.swing.JPanel();
+        TEXT_LABEL3 = new javax.swing.JLabel();
+        TEXT_PANEL4 = new javax.swing.JPanel();
+        TEXT_LABEL4 = new javax.swing.JLabel();
+        TEXT_PANEL5 = new javax.swing.JPanel();
+        TEXT_LABEL5 = new javax.swing.JLabel();
+        TEXT_PANEL6 = new javax.swing.JPanel();
+        TEXT_LABEL6 = new javax.swing.JLabel();
+        TEXT_PANEL7 = new javax.swing.JPanel();
+        TEXT_LABEL7 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         TYPE_BTN = new javax.swing.JButton();
         LEADERBOARD_BTN = new javax.swing.JButton();
         USERNAME_BTN = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        TEXT_PANEL0 = new javax.swing.JPanel();
-        TEXT_LABEL00 = new javax.swing.JLabel();
-        TEXT_LABEL01 = new javax.swing.JLabel();
-        TEXT_LABEL02 = new javax.swing.JLabel();
-        TEXT_LABLE03 = new javax.swing.JLabel();
-        TEXT_LABEL04 = new javax.swing.JLabel();
-        TEXT_LABEL05 = new javax.swing.JLabel();
-        TEXT_PANEL1 = new javax.swing.JPanel();
-        TEXT_LABEL10 = new javax.swing.JLabel();
-        TEXT_LABEL11 = new javax.swing.JLabel();
-        TEXT_LABEL12 = new javax.swing.JLabel();
-        TEXT_LABLE13 = new javax.swing.JLabel();
-        TEXT_LABEL14 = new javax.swing.JLabel();
-        TEXT_LABEL15 = new javax.swing.JLabel();
-        TEXT_PANEL2 = new javax.swing.JPanel();
-        TEXT_LABEL20 = new javax.swing.JLabel();
-        TEXT_LABEL21 = new javax.swing.JLabel();
-        TEXT_LABEL22 = new javax.swing.JLabel();
-        TEXT_LABLE23 = new javax.swing.JLabel();
-        TEXT_LABEL24 = new javax.swing.JLabel();
-        TEXT_LABEL25 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        MUSIC_TGGLE = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(9, 54, 108));
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(2000, 1000));
+        jPanel1.setPreferredSize(new java.awt.Dimension(2000, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TYPE_TEXT.setBackground(new java.awt.Color(90, 190, 175));
@@ -129,7 +196,7 @@ public class TYPEE extends javax.swing.JFrame {
                 TYPE_TEXTKeyTyped(evt);
             }
         });
-        jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 670, 60));
+        jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 670, 60));
 
         jPanel2.setBackground(java.awt.Color.yellow);
         jPanel2.setForeground(java.awt.Color.black);
@@ -144,14 +211,14 @@ public class TYPEE extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 337, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 160, 180));
 
         jPanel3.setBackground(new java.awt.Color(7, 112, 134));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -196,7 +263,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(jLabel6)
-                .addContainerGap(488, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,17 +303,187 @@ public class TYPEE extends javax.swing.JFrame {
                         .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 670, 180));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 670, 180));
 
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jButton1.setForeground(java.awt.Color.black);
         jButton1.setText("REPLAY");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, 160, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 160, 60));
+
+        jPanel4.setBackground(new java.awt.Color(8, 148, 159));
+        jPanel4.setMaximumSize(new java.awt.Dimension(32767000, 32767));
+        jPanel4.setMinimumSize(new java.awt.Dimension(900, 900));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TEXT_PANEL1.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL1.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL1.setForeground(java.awt.Color.black);
+        TEXT_LABEL1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL1.setText("a");
+        TEXT_LABEL1.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL1Layout = new javax.swing.GroupLayout(TEXT_PANEL1);
+        TEXT_PANEL1.setLayout(TEXT_PANEL1Layout);
+        TEXT_PANEL1Layout.setHorizontalGroup(
+            TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL1Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL1Layout.setVerticalGroup(
+            TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 630, -1));
+
+        TEXT_PANEL2.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL2.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL2.setForeground(java.awt.Color.black);
+        TEXT_LABEL2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL2.setText("a");
+        TEXT_LABEL2.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL2Layout = new javax.swing.GroupLayout(TEXT_PANEL2);
+        TEXT_PANEL2.setLayout(TEXT_PANEL2Layout);
+        TEXT_PANEL2Layout.setHorizontalGroup(
+            TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL2Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL2Layout.setVerticalGroup(
+            TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 630, -1));
+
+        TEXT_PANEL3.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL3.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL3.setForeground(java.awt.Color.black);
+        TEXT_LABEL3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL3.setText("a");
+        TEXT_LABEL3.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL3Layout = new javax.swing.GroupLayout(TEXT_PANEL3);
+        TEXT_PANEL3.setLayout(TEXT_PANEL3Layout);
+        TEXT_PANEL3Layout.setHorizontalGroup(
+            TEXT_PANEL3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL3Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL3Layout.setVerticalGroup(
+            TEXT_PANEL3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 630, -1));
+
+        TEXT_PANEL4.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL4.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL4.setForeground(java.awt.Color.black);
+        TEXT_LABEL4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL4.setText("a");
+        TEXT_LABEL4.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL4Layout = new javax.swing.GroupLayout(TEXT_PANEL4);
+        TEXT_PANEL4.setLayout(TEXT_PANEL4Layout);
+        TEXT_PANEL4Layout.setHorizontalGroup(
+            TEXT_PANEL4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL4Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL4Layout.setVerticalGroup(
+            TEXT_PANEL4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 630, -1));
+
+        TEXT_PANEL5.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL5.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL5.setForeground(java.awt.Color.black);
+        TEXT_LABEL5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL5.setText("a");
+        TEXT_LABEL5.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL5Layout = new javax.swing.GroupLayout(TEXT_PANEL5);
+        TEXT_PANEL5.setLayout(TEXT_PANEL5Layout);
+        TEXT_PANEL5Layout.setHorizontalGroup(
+            TEXT_PANEL5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL5Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL5Layout.setVerticalGroup(
+            TEXT_PANEL5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 630, -1));
+
+        TEXT_PANEL6.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL6.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL6.setForeground(java.awt.Color.black);
+        TEXT_LABEL6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL6.setText("a");
+        TEXT_LABEL6.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL6Layout = new javax.swing.GroupLayout(TEXT_PANEL6);
+        TEXT_PANEL6.setLayout(TEXT_PANEL6Layout);
+        TEXT_PANEL6Layout.setHorizontalGroup(
+            TEXT_PANEL6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL6Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL6Layout.setVerticalGroup(
+            TEXT_PANEL6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 630, -1));
+
+        TEXT_PANEL7.setBackground(new java.awt.Color(8, 148, 159));
+
+        TEXT_LABEL7.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        TEXT_LABEL7.setForeground(java.awt.Color.black);
+        TEXT_LABEL7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TEXT_LABEL7.setText("a");
+        TEXT_LABEL7.setMaximumSize(new java.awt.Dimension(90, 43));
+
+        javax.swing.GroupLayout TEXT_PANEL7Layout = new javax.swing.GroupLayout(TEXT_PANEL7);
+        TEXT_PANEL7.setLayout(TEXT_PANEL7Layout);
+        TEXT_PANEL7Layout.setHorizontalGroup(
+            TEXT_PANEL7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEXT_PANEL7Layout.createSequentialGroup()
+                .addComponent(TEXT_LABEL7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(611, Short.MAX_VALUE))
+        );
+        TEXT_PANEL7Layout.setVerticalGroup(
+            TEXT_PANEL7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TEXT_LABEL7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(TEXT_PANEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 630, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, 300));
+
+        jPanel5.setBackground(new java.awt.Color(51, 0, 51));
 
         TYPE_BTN.setBackground(new java.awt.Color(51, 179, 120));
         TYPE_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
@@ -257,7 +494,6 @@ public class TYPEE extends javax.swing.JFrame {
                 TYPE_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(TYPE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 20, 159, 47));
 
         LEADERBOARD_BTN.setBackground(new java.awt.Color(51, 70, 44));
         LEADERBOARD_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -268,256 +504,82 @@ public class TYPEE extends javax.swing.JFrame {
                 LEADERBOARD_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(LEADERBOARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 103, 159, 47));
 
         USERNAME_BTN.setBackground(new java.awt.Color(51, 85, 140));
         USERNAME_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        USERNAME_BTN.setText("USERNAME");
+        USERNAME_BTN.setText("CHANGE USER");
         USERNAME_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         USERNAME_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 USERNAME_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(USERNAME_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 189, 159, 47));
 
-        jPanel4.setBackground(new java.awt.Color(8, 148, 159));
-        jPanel4.setMaximumSize(new java.awt.Dimension(32767000, 32767));
-        jPanel4.setMinimumSize(new java.awt.Dimension(900, 900));
+        jLabel10.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        jLabel10.setText("ADMIN");
 
-        TEXT_PANEL0.setBackground(new java.awt.Color(8, 148, 159));
+        jLabel11.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("NO IMAGE");
 
-        TEXT_LABEL00.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL00.setForeground(java.awt.Color.black);
-        TEXT_LABEL00.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL00.setText("dsds");
-        TEXT_LABEL00.setMaximumSize(new java.awt.Dimension(90, 43));
+        MUSIC_TGGLE.setBackground(new java.awt.Color(0, 0, 153));
+        MUSIC_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        MUSIC_TGGLE.setText("MUSIC ON");
+        MUSIC_TGGLE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MUSIC_TGGLE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MUSIC_TGGLEActionPerformed(evt);
+            }
+        });
 
-        TEXT_LABEL01.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL01.setForeground(java.awt.Color.black);
-        TEXT_LABEL01.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL01.setText("dsds");
-        TEXT_LABEL01.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL02.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL02.setForeground(java.awt.Color.black);
-        TEXT_LABEL02.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL02.setText("dsds");
-        TEXT_LABEL02.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABLE03.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABLE03.setForeground(java.awt.Color.black);
-        TEXT_LABLE03.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABLE03.setText("dsds");
-        TEXT_LABLE03.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL04.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL04.setForeground(java.awt.Color.black);
-        TEXT_LABEL04.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL04.setText("dsds");
-        TEXT_LABEL04.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL05.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL05.setForeground(java.awt.Color.black);
-        TEXT_LABEL05.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL05.setText("sd");
-        TEXT_LABEL05.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        javax.swing.GroupLayout TEXT_PANEL0Layout = new javax.swing.GroupLayout(TEXT_PANEL0);
-        TEXT_PANEL0.setLayout(TEXT_PANEL0Layout);
-        TEXT_PANEL0Layout.setHorizontalGroup(
-            TEXT_PANEL0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TEXT_PANEL0Layout.createSequentialGroup()
-                .addComponent(TEXT_LABEL00, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABLE03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL05, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel10)
+                    .addComponent(TYPE_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
-        TEXT_PANEL0Layout.setVerticalGroup(
-            TEXT_PANEL0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TEXT_LABEL00, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(TEXT_PANEL0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(TEXT_LABEL01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(TEXT_LABLE03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL05, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        TEXT_PANEL1.setBackground(new java.awt.Color(8, 148, 159));
-
-        TEXT_LABEL10.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL10.setForeground(java.awt.Color.black);
-        TEXT_LABEL10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL10.setText("dsds");
-        TEXT_LABEL10.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL11.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL11.setForeground(java.awt.Color.black);
-        TEXT_LABEL11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL11.setText("dsds");
-        TEXT_LABEL11.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL12.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL12.setForeground(java.awt.Color.black);
-        TEXT_LABEL12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL12.setText("dsds");
-        TEXT_LABEL12.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABLE13.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABLE13.setForeground(java.awt.Color.black);
-        TEXT_LABLE13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABLE13.setText("dsds");
-        TEXT_LABLE13.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL14.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL14.setForeground(java.awt.Color.black);
-        TEXT_LABEL14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL14.setText("dsds");
-        TEXT_LABEL14.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL15.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL15.setForeground(java.awt.Color.black);
-        TEXT_LABEL15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL15.setText("sd");
-        TEXT_LABEL15.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        javax.swing.GroupLayout TEXT_PANEL1Layout = new javax.swing.GroupLayout(TEXT_PANEL1);
-        TEXT_PANEL1.setLayout(TEXT_PANEL1Layout);
-        TEXT_PANEL1Layout.setHorizontalGroup(
-            TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TEXT_PANEL1Layout.createSequentialGroup()
-                .addComponent(TEXT_LABEL10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABLE13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TEXT_PANEL1Layout.setVerticalGroup(
-            TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(TEXT_LABEL10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(TEXT_LABEL12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABLE13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        TEXT_PANEL2.setBackground(new java.awt.Color(8, 148, 159));
-
-        TEXT_LABEL20.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL20.setForeground(java.awt.Color.black);
-        TEXT_LABEL20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL20.setText("dsds");
-        TEXT_LABEL20.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL21.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL21.setForeground(java.awt.Color.black);
-        TEXT_LABEL21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL21.setText("dsds");
-        TEXT_LABEL21.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL22.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL22.setForeground(java.awt.Color.black);
-        TEXT_LABEL22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL22.setText("dsds");
-        TEXT_LABEL22.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABLE23.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABLE23.setForeground(java.awt.Color.black);
-        TEXT_LABLE23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABLE23.setText("dsds");
-        TEXT_LABLE23.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL24.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL24.setForeground(java.awt.Color.black);
-        TEXT_LABEL24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL24.setText("dsds");
-        TEXT_LABEL24.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        TEXT_LABEL25.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        TEXT_LABEL25.setForeground(java.awt.Color.black);
-        TEXT_LABEL25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TEXT_LABEL25.setText("sd");
-        TEXT_LABEL25.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        javax.swing.GroupLayout TEXT_PANEL2Layout = new javax.swing.GroupLayout(TEXT_PANEL2);
-        TEXT_PANEL2.setLayout(TEXT_PANEL2Layout);
-        TEXT_PANEL2Layout.setHorizontalGroup(
-            TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TEXT_PANEL2Layout.createSequentialGroup()
-                .addComponent(TEXT_LABEL20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABLE23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_LABEL25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TEXT_PANEL2Layout.setVerticalGroup(
-            TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(TEXT_LABEL20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(TEXT_LABEL22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABLE23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TEXT_LABEL25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TEXT_PANEL0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TEXT_PANEL1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TEXT_PANEL2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TEXT_PANEL0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_PANEL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEXT_PANEL2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(747, Short.MAX_VALUE))
+                .addComponent(jLabel10)
+                .addGap(43, 43, 43)
+                .addComponent(TYPE_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 670, 190));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 240, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -573,6 +635,17 @@ public class TYPEE extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_USERNAME_BTNActionPerformed
 
+    private void MUSIC_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MUSIC_TGGLEActionPerformed
+        // TODO add your handling code here:
+
+        if (MUSIC_ON_OFF % 2 == 0) {
+            MUSIC_TGGLE.setText("MUSIC OFF");
+        } else {
+            MUSIC_TGGLE.setText("MUSIC ON");
+        }
+        ++MUSIC_ON_OFF;
+    }//GEN-LAST:event_MUSIC_TGGLEActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -608,32 +681,28 @@ public class TYPEE extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LEADERBOARD_BTN;
-    private javax.swing.JLabel TEXT_LABEL00;
-    private javax.swing.JLabel TEXT_LABEL01;
-    private javax.swing.JLabel TEXT_LABEL02;
-    private javax.swing.JLabel TEXT_LABEL04;
-    private javax.swing.JLabel TEXT_LABEL05;
-    private javax.swing.JLabel TEXT_LABEL10;
-    private javax.swing.JLabel TEXT_LABEL11;
-    private javax.swing.JLabel TEXT_LABEL12;
-    private javax.swing.JLabel TEXT_LABEL14;
-    private javax.swing.JLabel TEXT_LABEL15;
-    private javax.swing.JLabel TEXT_LABEL20;
-    private javax.swing.JLabel TEXT_LABEL21;
-    private javax.swing.JLabel TEXT_LABEL22;
-    private javax.swing.JLabel TEXT_LABEL24;
-    private javax.swing.JLabel TEXT_LABEL25;
-    private javax.swing.JLabel TEXT_LABLE03;
-    private javax.swing.JLabel TEXT_LABLE13;
-    private javax.swing.JLabel TEXT_LABLE23;
-    private javax.swing.JPanel TEXT_PANEL0;
+    private javax.swing.JToggleButton MUSIC_TGGLE;
+    private javax.swing.JLabel TEXT_LABEL1;
+    private javax.swing.JLabel TEXT_LABEL2;
+    private javax.swing.JLabel TEXT_LABEL3;
+    private javax.swing.JLabel TEXT_LABEL4;
+    private javax.swing.JLabel TEXT_LABEL5;
+    private javax.swing.JLabel TEXT_LABEL6;
+    private javax.swing.JLabel TEXT_LABEL7;
     private javax.swing.JPanel TEXT_PANEL1;
     private javax.swing.JPanel TEXT_PANEL2;
+    private javax.swing.JPanel TEXT_PANEL3;
+    private javax.swing.JPanel TEXT_PANEL4;
+    private javax.swing.JPanel TEXT_PANEL5;
+    private javax.swing.JPanel TEXT_PANEL6;
+    private javax.swing.JPanel TEXT_PANEL7;
     private javax.swing.JButton TYPE_BTN;
     private javax.swing.JTextField TYPE_TEXT;
     private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -646,5 +715,6 @@ public class TYPEE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
