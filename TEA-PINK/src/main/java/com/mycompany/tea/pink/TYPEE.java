@@ -33,13 +33,11 @@ public class TYPEE extends javax.swing.JFrame {
     public TYPEE() {
         initComponents();
         LAGU();
-
     }
 
     public void LAGU() {
-
         int LAGU_RANDOM = (int) (Math.random() * 5);
-
+        
         String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
         String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia";
 
@@ -109,8 +107,6 @@ public class TYPEE extends javax.swing.JFrame {
     void Stopwatch() {
         int elapsedTime = 0;
         int seconds = 0;
-        int minutes = 0;
-        int hours = 0;
     }
 
     void Correct_Word() {
@@ -144,7 +140,6 @@ public class TYPEE extends javax.swing.JFrame {
         } else {
             TEXT_LABEL7.setForeground(Color.BLACK);
         }
-
     }
 
     void UnCorrect_Word() {
@@ -640,7 +635,6 @@ public class TYPEE extends javax.swing.JFrame {
                 UnCorrect_Word();
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Over Typing....");
         }
     }//GEN-LAST:event_TYPE_TEXTKeyReleased
 

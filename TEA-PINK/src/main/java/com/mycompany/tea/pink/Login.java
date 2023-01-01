@@ -44,7 +44,8 @@ public class Login extends javax.swing.JFrame {
         TP_LBL = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         LOGIN_BTN = new javax.swing.JButton();
-        LOGIN_TEXT = new javax.swing.JTextField();
+        USERNAME_TEXT = new javax.swing.JTextField();
+        ALERT_LBL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
@@ -74,13 +75,31 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(LOGIN_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 421, 130, 37));
 
-        LOGIN_TEXT.setBackground(java.awt.Color.white);
-        LOGIN_TEXT.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        LOGIN_TEXT.setForeground(java.awt.Color.gray);
-        LOGIN_TEXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        LOGIN_TEXT.setText("USERNAME");
-        LOGIN_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(LOGIN_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 217, 46));
+        USERNAME_TEXT.setBackground(java.awt.Color.white);
+        USERNAME_TEXT.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        USERNAME_TEXT.setForeground(java.awt.Color.gray);
+        USERNAME_TEXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        USERNAME_TEXT.setText("USERNAME");
+        USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        USERNAME_TEXT.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                USERNAME_TEXTInputMethodTextChanged(evt);
+            }
+        });
+        USERNAME_TEXT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                USERNAME_TEXTKeyReleased(evt);
+            }
+        });
+        jPanel1.add(USERNAME_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 217, 46));
+
+        ALERT_LBL.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        ALERT_LBL.setForeground(java.awt.Color.black);
+        ALERT_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ALERT_LBL.setText("* Maximum 15 Character");
+        jPanel1.add(ALERT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,20 +121,40 @@ public class Login extends javax.swing.JFrame {
 
     private void LOGIN_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGIN_BTNActionPerformed
         // TODO add your handling code here:
-        String USERNAME = LOGIN_TEXT.getText().toUpperCase();
-        
-        int input = JOptionPane.showConfirmDialog(null, ("SELAMAT DATANG " + USERNAME + "!"), "Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
-        if (input == 0) {
-            // add username to ALL_USERNAME(arraylist)
-            ALL_USERNAME.add(USERNAME);
+        String USERNAME = USERNAME_TEXT.getText().toUpperCase();
 
-            // to TYPEE page
-            TYPEE Type = new TYPEE();
-            Type.setLocationRelativeTo(null);
-            Type.setVisible(true);
-            this.setVisible(false);
+        if (USERNAME.equals("")) {
+            JOptionPane.showMessageDialog(null, "Username still Blank, PLease input username!", "A message", JOptionPane.OK_OPTION);
+        } else {
+            int input = JOptionPane.showConfirmDialog(null, ("SELAMAT DATANG " + USERNAME + "!"), "Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (input == 0) {
+                // add username to ALL_USERNAME(arraylist)
+                ALL_USERNAME.add(USERNAME);
+
+                // to TYPEE page
+                TYPEE Type = new TYPEE();
+                Type.setLocationRelativeTo(null);
+                Type.setVisible(true);
+                this.setVisible(false);
+            }
         }
     }//GEN-LAST:event_LOGIN_BTNActionPerformed
+
+    private void USERNAME_TEXTInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_USERNAME_TEXTInputMethodTextChanged
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_TEXT.getText().toUpperCase();
+
+
+    }//GEN-LAST:event_USERNAME_TEXTInputMethodTextChanged
+
+    private void USERNAME_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_USERNAME_TEXTKeyReleased
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_TEXT.getText();
+        String USERNAME_15 = USERNAME.substring(0,15);
+        if (USERNAME.length() > 15) {
+            USERNAME_TEXT.setText(USERNAME_15);
+        }
+    }//GEN-LAST:event_USERNAME_TEXTKeyReleased
 
     /**
      * @param args the command line arguments
@@ -154,9 +193,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ALERT_LBL;
     private javax.swing.JButton LOGIN_BTN;
-    private javax.swing.JTextField LOGIN_TEXT;
     private javax.swing.JLabel TP_LBL;
+    private javax.swing.JTextField USERNAME_TEXT;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
