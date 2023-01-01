@@ -1,12 +1,9 @@
 package com.mycompany.tea.pink;
 
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author MUHAMMAD IDRIS
@@ -14,7 +11,6 @@ import javax.swing.JOptionPane;
  * @author IVANKA AUDY IKHWAN
  */
 public class Home extends javax.swing.JFrame {
-
     /**
      * Creates new form Home
      */
