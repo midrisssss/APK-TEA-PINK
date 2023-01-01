@@ -7,6 +7,9 @@
 package com.mycompany.tea.pink;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  *
@@ -17,18 +20,30 @@ public class TYPEE extends javax.swing.JFrame {
     String LIRIK_LAGU = null; // LIRIK LAGU FULL
     String[] LAGU = null; // LIRIK LAGU AFTER SPLIT
     String LAGU_ROW1 = "", LAGU_ROW2 = "", LAGU_ROW3 = "", LAGU_ROW4 = "", LAGU_ROW5 = "", LAGU_ROW6 = "", LAGU_ROW7 = ""; //LAGU BARIS KE 1-7
+    int DISPLAY_WORD1 = 0, DISPLAY_WORD2 = 0, DISPLAY_WORD3 = 0, DISPLAY_WORD4 = 0, DISPLAY_WORD5 = 0, DISPLAY_WORD6 = 0, DISPLAY_WORD7 = 0;
     int TOTAL_WORDS = 0; // TOTAL KATA dlm ARRAY
     int TOTAL_LETTER = 0; // TOTAL HURUF dlm ARRAY
     int MUSIC_ON_OFF = 0; // MUSIC
+    int COLOR_WORD1 = 0, COLOR_WORD2 = 0, COLOR_WORD3 = 0, COLOR_WORD4 = 0, COLOR_WORD5 = 0, COLOR_WORD6 = 0, COLOR_WORD7 = 0;
 
     int i = 0, j = 0, k = 0;
 
-    void LAGU() {
+    /**
+     *
+     * Creates new form TYPEE
+     */
+    public TYPEE() {
+        initComponents();
+        LAGU();
+
+    }
+
+    public void LAGU() {
 
         int LAGU_RANDOM = (int) (Math.random() * 5);
 
         String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
-        String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia .tapi .semuanya .hilang, .tanpa .sebab, .Kau .hentikan .semuanya";
+        String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia";
 
         switch (LAGU_RANDOM) {
             case 0, 2, 4 ->
@@ -43,92 +58,114 @@ public class TYPEE extends javax.swing.JFrame {
         TOTAL_WORDS = LAGU.length;
         TOTAL_LETTER = LIRIK_LAGU.length();
 
-        System.out.println(TOTAL_LETTER + " " + TOTAL_WORDS + " " + LIRIK_LAGU);
-        int DISPLAY_WORD1 = 0, DISPLAY_WORD2 = 0, DISPLAY_WORD3 = 0, DISPLAY_WORD4 = 0, DISPLAY_WORD5 = 0, DISPLAY_WORD6 = 0, DISPLAY_INDEX1 = 0, DISPLAY_INDEX2 = 0, DISPLAY_INDEX3 = 0, DISPLAY_INDEX4 = 0, DISPLAY_INDEX5 = 0, DISPLAY_INDEX6 = 0, DISPLAY_INDEX7 = 0, DISPLAY_WORD7 = 0;
+        int DISPLAY_INDEX1 = 0, DISPLAY_INDEX2 = 0, DISPLAY_INDEX3 = 0, DISPLAY_INDEX4 = 0, DISPLAY_INDEX5 = 0, DISPLAY_INDEX6 = 0, DISPLAY_INDEX7 = 0;
 
-        for (int col = 0; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX1 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD1++;
-                DISPLAY_INDEX1 += LAGU[col].length();
-                LAGU_ROW1 += LAGU[col];
+        for (int row = 0; row < LAGU.length; row++) {
+            if (((DISPLAY_INDEX1 + LAGU[row].length()) <= 38) && LAGU_ROW2.equals("")) {
+                ++DISPLAY_WORD1;
+                DISPLAY_INDEX1 += LAGU[row].length();
+                LAGU_ROW1 += LAGU[row];
+            } else if (((DISPLAY_INDEX2 + LAGU[row].length()) <= 38) && LAGU_ROW3.equals("")) {
+                ++DISPLAY_WORD2;
+                DISPLAY_INDEX2 += LAGU[row].length();
+                LAGU_ROW2 += LAGU[row];
+            } else if (((DISPLAY_INDEX3 + LAGU[row].length()) <= 38) && LAGU_ROW4.equals("")) {
+                ++DISPLAY_WORD3;
+                DISPLAY_INDEX3 += LAGU[row].length();
+                LAGU_ROW3 += LAGU[row];
+            } else if (((DISPLAY_INDEX4 + LAGU[row].length()) <= 38) && LAGU_ROW5.equals("")) {
+                ++DISPLAY_WORD4;
+                DISPLAY_INDEX4 += LAGU[row].length();
+                LAGU_ROW4 += LAGU[row];
+            } else if (((DISPLAY_INDEX5 + LAGU[row].length()) <= 38) && LAGU_ROW6.equals("")) {
+                ++DISPLAY_WORD5;
+                DISPLAY_INDEX5 += LAGU[row].length();
+                LAGU_ROW5 += LAGU[row];
+            } else if (((DISPLAY_INDEX6 + LAGU[row].length()) <= 38) && LAGU_ROW7.equals("")) {
+                ++DISPLAY_WORD6;
+                DISPLAY_INDEX6 += LAGU[row].length();
+                LAGU_ROW6 += LAGU[row];
             } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD1; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX2 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD2++;
-                DISPLAY_INDEX2 += LAGU[col].length();
-                LAGU_ROW2 += LAGU[col];
-            } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD2; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX3 + LAGU[col].length()) <= 36) { // 38 = 38 kolom di label text dalam 1 baris
-                DISPLAY_WORD3++;
-                DISPLAY_INDEX3 += LAGU[col].length();
-                LAGU_ROW3 += LAGU[col];
-            } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD3; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX4 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD4++;
-                DISPLAY_INDEX4 += LAGU[col].length();
-                LAGU_ROW4 += LAGU[col];
-            } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD4; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX5 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD5++;
-                DISPLAY_INDEX5 += LAGU[col].length();
-                LAGU_ROW5 += LAGU[col];
-            } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD5; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX6 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD6++;
-                DISPLAY_INDEX6 += LAGU[col].length();
-                LAGU_ROW6 += LAGU[col];
-            } else {
-                break;
-            }
-        }
-        for (int col = DISPLAY_WORD6; col < TOTAL_WORDS; col++) {
-            if ((DISPLAY_INDEX7 + LAGU[col].length()) <= 36) {
-                DISPLAY_WORD7++;
-                DISPLAY_INDEX7 += LAGU[col].length();
-                LAGU_ROW7 += LAGU[col];
-            } else {
-                break;
+                ++DISPLAY_WORD7;
+                DISPLAY_INDEX7 += LAGU[row].length();
+                LAGU_ROW7 += LAGU[row];
             }
         }
 
-        System.out.println("DISPLAY INDEX " + DISPLAY_INDEX1 + "\n");
-        System.out.println("DISPLAY INDEX " + DISPLAY_INDEX2 + "\n");
-
+        COLOR_WORD1 = DISPLAY_WORD1;
+        COLOR_WORD2 = COLOR_WORD1 + DISPLAY_WORD2;
+        COLOR_WORD3 = COLOR_WORD2 + DISPLAY_WORD3;
+        COLOR_WORD4 = COLOR_WORD3 + DISPLAY_WORD4;
+        COLOR_WORD5 = COLOR_WORD4 + DISPLAY_WORD5;
+        COLOR_WORD6 = COLOR_WORD5 + DISPLAY_WORD6;
+        COLOR_WORD7 = COLOR_WORD6 + DISPLAY_WORD7;
         TEXT_LABEL1.setText(LAGU_ROW1);
         TEXT_LABEL2.setText(LAGU_ROW2);
-        TEXT_LABEL3.setText("huuuuu");
+        TEXT_LABEL3.setText(LAGU_ROW3);
         TEXT_LABEL4.setText(LAGU_ROW4);
-        TEXT_LABEL5.setText("aaaaaaa");
+        TEXT_LABEL5.setText(LAGU_ROW5);
         TEXT_LABEL6.setText(LAGU_ROW6);
         TEXT_LABEL7.setText(LAGU_ROW7);
     }
 
-    /**
-     *
-     * Creates new form TYPEE
-     */
-    public TYPEE() {
-        initComponents();
-        LAGU();
+    void Stopwatch() {
+        int elapsedTime = 0;
+        int seconds = 0;
+        int minutes = 0;
+        int hours = 0;
+    }
+
+    void Correct_Word() {
+        TYPE_TEXT.setBackground(Color.white);
+
+        if (j < COLOR_WORD2) {
+            TEXT_LABEL1.setForeground(Color.ORANGE);
+        } else if (j < COLOR_WORD3) {
+            TEXT_LABEL2.setForeground(Color.ORANGE);
+        } else if (j < COLOR_WORD4) {
+            TEXT_LABEL3.setForeground(Color.ORANGE);
+        } else if (j < COLOR_WORD5) {
+            TEXT_LABEL4.setForeground(Color.ORANGE);
+        } else if (j < COLOR_WORD6) {
+            TEXT_LABEL5.setForeground(Color.ORANGE);
+        } else if (j < COLOR_WORD7) {
+            TEXT_LABEL6.setForeground(Color.ORANGE);
+        }
+        if (j < COLOR_WORD1) {
+            TEXT_LABEL1.setForeground(Color.BLACK);
+        } else if (j < COLOR_WORD2) {
+            TEXT_LABEL2.setForeground(Color.BLACK);
+        } else if (j < COLOR_WORD3) {
+            TEXT_LABEL3.setForeground(Color.BLACK);
+        } else if (j < COLOR_WORD4) {
+            TEXT_LABEL4.setForeground(Color.BLACK);
+        } else if (j < COLOR_WORD5) {
+            TEXT_LABEL5.setForeground(Color.BLACK);
+        } else if (j < COLOR_WORD6) {
+            TEXT_LABEL6.setForeground(Color.BLACK);
+        } else {
+            TEXT_LABEL7.setForeground(Color.BLACK);
+        }
+
+    }
+
+    void UnCorrect_Word() {
+        TYPE_TEXT.setBackground(Color.red);
+        if (j < COLOR_WORD1) {
+            TEXT_LABEL1.setForeground(Color.RED);
+        } else if (j < COLOR_WORD2) {
+            TEXT_LABEL2.setForeground(Color.RED);
+        } else if (j < COLOR_WORD3) {
+            TEXT_LABEL3.setForeground(Color.RED);
+        } else if (j < COLOR_WORD4) {
+            TEXT_LABEL4.setForeground(Color.RED);
+        } else if (j < COLOR_WORD5) {
+            TEXT_LABEL5.setForeground(Color.RED);
+        } else if (j < COLOR_WORD6) {
+            TEXT_LABEL6.setForeground(Color.RED);
+        } else { //if (j < (DISPLAY_WORD6 + DISPLAY_WORD7)) 
+            TEXT_LABEL7.setForeground(Color.RED);
+        }
     }
 
     /**
@@ -153,8 +190,8 @@ public class TYPEE extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        REPLAY_BTN = new javax.swing.JButton();
+        TEXT_PANEL = new javax.swing.JPanel();
         TEXT_PANEL1 = new javax.swing.JPanel();
         TEXT_LABEL1 = new javax.swing.JLabel();
         TEXT_PANEL2 = new javax.swing.JPanel();
@@ -191,9 +228,6 @@ public class TYPEE extends javax.swing.JFrame {
         TYPE_TEXT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TYPE_TEXTKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TYPE_TEXTKeyTyped(evt);
             }
         });
         jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 670, 60));
@@ -308,17 +342,17 @@ public class TYPEE extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 670, 180));
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jButton1.setForeground(java.awt.Color.black);
-        jButton1.setText("REPLAY");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 160, 60));
+        REPLAY_BTN.setBackground(new java.awt.Color(204, 255, 255));
+        REPLAY_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        REPLAY_BTN.setForeground(java.awt.Color.black);
+        REPLAY_BTN.setText("REPLAY");
+        REPLAY_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 160, 60));
 
-        jPanel4.setBackground(new java.awt.Color(8, 148, 159));
-        jPanel4.setMaximumSize(new java.awt.Dimension(32767000, 32767));
-        jPanel4.setMinimumSize(new java.awt.Dimension(900, 900));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TEXT_PANEL.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
+        TEXT_PANEL.setMinimumSize(new java.awt.Dimension(900, 900));
+        TEXT_PANEL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TEXT_PANEL1.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -334,14 +368,14 @@ public class TYPEE extends javax.swing.JFrame {
             TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL1Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TEXT_PANEL1Layout.setVerticalGroup(
             TEXT_PANEL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 630, -1));
 
         TEXT_PANEL2.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -364,7 +398,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 630, -1));
 
         TEXT_PANEL3.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -387,7 +421,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 630, -1));
 
         TEXT_PANEL4.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -410,7 +444,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 630, -1));
 
         TEXT_PANEL5.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -433,7 +467,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 630, -1));
 
         TEXT_PANEL6.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -456,7 +490,7 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 630, -1));
 
         TEXT_PANEL7.setBackground(new java.awt.Color(8, 148, 159));
 
@@ -479,9 +513,9 @@ public class TYPEE extends javax.swing.JFrame {
             .addComponent(TEXT_LABEL7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(TEXT_PANEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 630, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, 300));
+        jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, 300));
 
         jPanel5.setBackground(new java.awt.Color(51, 0, 51));
 
@@ -587,29 +621,30 @@ public class TYPEE extends javax.swing.JFrame {
     // [8,148,159]
     private void TYPE_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TYPE_TEXTKeyReleased
         // TODO add your handling code here:
-        String TYPE = TYPE_TEXT.getText();
 
         //do {
-        if (TYPE.equals(LAGU[j].substring(0, TYPE.length()))) {
-            TYPE_TEXT.setBackground(Color.white);
-            // TYPEE_TEXTAREA.setForeground(Color.white);
-            if (TYPE.equals(LAGU[j])) {
-                j++;
-                TYPE_TEXT.setText("");
+        try {
+            String TYPE = TYPE_TEXT.getText();
+            if (TYPE.equals(LAGU[j].substring(0, TYPE.length()))) {
+                Correct_Word();
+                if (TYPE.equals(LAGU[j])) {
+                    j++;
+                    TYPE_TEXT.setText("");
+                    if (TYPE.equals(LAGU[TOTAL_WORDS - 1])) {
+                        TYPE_TEXT.setEditable(false);
+                        TEXT_LABEL7.setForeground(Color.ORANGE);
+                        if (LAGU_ROW7.equals("")) {
+                            TEXT_LABEL6.setForeground(Color.ORANGE);
+                        }
+                    }
+                }
+            } else {
+                UnCorrect_Word();
             }
-        } else {
-            TYPE_TEXT.setBackground(Color.red);
-            // TYPEE_TEXTAREA.setForeground(Color.red);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Over Typing....");
         }
-
-        //} while (i < LIRIK_LAGU.length);
-
     }//GEN-LAST:event_TYPE_TEXTKeyReleased
-
-    private void TYPE_TEXTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TYPE_TEXTKeyTyped
-        // TODO add your handling code here:
-        i++;
-    }//GEN-LAST:event_TYPE_TEXTKeyTyped
 
     private void TYPE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TYPE_BTNActionPerformed
         // TODO add your handling code here:
@@ -682,6 +717,7 @@ public class TYPEE extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LEADERBOARD_BTN;
     private javax.swing.JToggleButton MUSIC_TGGLE;
+    private javax.swing.JButton REPLAY_BTN;
     private javax.swing.JLabel TEXT_LABEL1;
     private javax.swing.JLabel TEXT_LABEL2;
     private javax.swing.JLabel TEXT_LABEL3;
@@ -689,6 +725,7 @@ public class TYPEE extends javax.swing.JFrame {
     private javax.swing.JLabel TEXT_LABEL5;
     private javax.swing.JLabel TEXT_LABEL6;
     private javax.swing.JLabel TEXT_LABEL7;
+    private javax.swing.JPanel TEXT_PANEL;
     private javax.swing.JPanel TEXT_PANEL1;
     private javax.swing.JPanel TEXT_PANEL2;
     private javax.swing.JPanel TEXT_PANEL3;
@@ -699,7 +736,6 @@ public class TYPEE extends javax.swing.JFrame {
     private javax.swing.JButton TYPE_BTN;
     private javax.swing.JTextField TYPE_TEXT;
     private javax.swing.JButton USERNAME_BTN;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -714,7 +750,12 @@ public class TYPEE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
+
+    static class ActionListenerImpl implements ActionListener {
+
+        public ActionListenerImpl() {
+        }
+    }
 }
