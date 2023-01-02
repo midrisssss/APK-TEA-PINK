@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,7 +64,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("LOGIN");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 181, -1, -1));
 
-        LOGIN_BTN.setBackground(java.awt.Color.blue);
+        LOGIN_BTN.setBackground(new java.awt.Color(0, 153, 153));
         LOGIN_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         LOGIN_BTN.setText("Log In");
         LOGIN_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

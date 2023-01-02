@@ -16,5 +16,4 @@ public class APK_TEA_PINK {
         HOME.setLocationRelativeTo(null);
         HOME.setVisible(true);
     }
-    
 }

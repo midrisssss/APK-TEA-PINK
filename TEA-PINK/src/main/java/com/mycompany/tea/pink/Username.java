@@ -34,14 +34,14 @@ public class Username extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jButton2.setBackground(new java.awt.Color(51, 179, 120));
+        jButton2.setBackground(new java.awt.Color(102, 0, 0));
         jButton2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jButton2.setText("TYPE");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton3.setBackground(new java.awt.Color(51, 70, 44));
+        jButton3.setBackground(new java.awt.Color(102, 0, 0));
         jButton3.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jButton3.setText("LEADERBOARD");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -52,7 +52,7 @@ public class Username extends javax.swing.JFrame {
         jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.yellow);
+        jLabel1.setForeground(java.awt.Color.pink);
         jLabel1.setText("LEADERBOARD");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

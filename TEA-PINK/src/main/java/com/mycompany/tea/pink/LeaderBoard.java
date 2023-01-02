@@ -27,9 +27,6 @@ public class LeaderBoard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -68,38 +65,33 @@ public class LeaderBoard extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        LEADERBOARD_BTN = new javax.swing.JButton();
+        USERNAME_BTN = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        MUSIC_TGGLE = new javax.swing.JToggleButton();
+        TYPEE_TGGLE = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 500));
-        setPreferredSize(new java.awt.Dimension(900, 500));
+        setMinimumSize(new java.awt.Dimension(1150, 650));
+        setPreferredSize(new java.awt.Dimension(1165, 690));
+        setSize(new java.awt.Dimension(1150, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(java.awt.Color.blue);
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
 
-        jButton2.setBackground(new java.awt.Color(51, 179, 120));
-        jButton2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jButton2.setText("TYPE");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton3.setBackground(new java.awt.Color(51, 70, 44));
-        jButton3.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jButton3.setText("LEADERBOARD");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton4.setBackground(new java.awt.Color(51, 85, 140));
-        jButton4.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jButton4.setText("USERNAME");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jPanel2.setBackground(java.awt.Color.red);
+
+        jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("NO");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("USERNAME");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -115,7 +107,7 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,12 +117,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("1");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("ake");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -156,12 +150,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel5.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel8.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("3");
 
         jLabel9.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setText("ara");
 
         jLabel10.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -187,12 +183,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel6.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel11.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("4");
 
         jLabel12.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel12.setText("afe");
 
         jLabel13.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -218,12 +216,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel7.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel14.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("5");
 
         jLabel15.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("rea");
 
         jLabel16.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -249,12 +249,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel8.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel17.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("6");
 
         jLabel18.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel18.setText("are");
 
         jLabel19.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -280,12 +282,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel9.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel20.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("7");
 
         jLabel21.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel21.setText("tra");
 
         jLabel22.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -311,12 +315,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel10.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel23.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("8");
 
         jLabel24.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel24.setText("rew");
 
         jLabel25.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -342,12 +348,14 @@ public class LeaderBoard extends javax.swing.JFrame {
                 .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel11.setBackground(new java.awt.Color(102, 153, 255));
+
         jLabel26.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("2");
 
         jLabel27.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel27.setText("tara");
 
         jLabel28.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -410,8 +418,95 @@ public class LeaderBoard extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.yellow);
+        jLabel1.setForeground(java.awt.Color.pink);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LEADERBOARD");
+
+        jPanel12.setBackground(new java.awt.Color(255, 153, 204));
+
+        LEADERBOARD_BTN.setBackground(new java.awt.Color(102, 0, 0));
+        LEADERBOARD_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        LEADERBOARD_BTN.setText("LEADERBOARD");
+        LEADERBOARD_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LEADERBOARD_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LEADERBOARD_BTNActionPerformed(evt);
+            }
+        });
+
+        USERNAME_BTN.setBackground(new java.awt.Color(51, 85, 140));
+        USERNAME_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        USERNAME_BTN.setText("CHANGE USER");
+        USERNAME_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        USERNAME_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USERNAME_BTNActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("ADMIN");
+
+        jLabel30.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("NO IMAGE");
+
+        MUSIC_TGGLE.setBackground(new java.awt.Color(102, 0, 0));
+        MUSIC_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        MUSIC_TGGLE.setText("MUSIC ON");
+        MUSIC_TGGLE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MUSIC_TGGLE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MUSIC_TGGLEActionPerformed(evt);
+            }
+        });
+
+        TYPEE_TGGLE.setBackground(new java.awt.Color(102, 0, 0));
+        TYPEE_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        TYPEE_TGGLE.setSelected(true);
+        TYPEE_TGGLE.setText("TYPEE");
+        TYPEE_TGGLE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TYPEE_TGGLE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TYPEE_TGGLEActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(TYPEE_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel29)
+                .addGap(49, 49, 49)
+                .addComponent(TYPEE_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -420,41 +515,67 @@ public class LeaderBoard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jLabel1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 5, Short.MAX_VALUE)))
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(78, 78, 78)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 920, 510));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LEADERBOARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEADERBOARD_BTNActionPerformed
+        // TODO add your handling code here:
+        LeaderBoard LEADERBOARD = new LeaderBoard();
+        LEADERBOARD.setLocationRelativeTo(null);
+        LEADERBOARD.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_LEADERBOARD_BTNActionPerformed
+
+    private void USERNAME_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERNAME_BTNActionPerformed
+        // TODO add your handling code here:
+        Username USERNAME = new Username();
+        USERNAME.setLocationRelativeTo(null);
+        USERNAME.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_USERNAME_BTNActionPerformed
+
+    private void MUSIC_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MUSIC_TGGLEActionPerformed
+        // TODO add your handling code here:
+        MUSIC_ON_OFF++;
+        if (MUSIC_ON_OFF % 2 == 0) {
+            MUSIC_TGGLE.setText("MUSIC OFF");
+        } else {
+            MUSIC_TGGLE.setText("MUSIC ON");
+        }
+    }//GEN-LAST:event_MUSIC_TGGLEActionPerformed
+
+    private void TYPEE_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TYPEE_TGGLEActionPerformed
+        // TODO add your handling code here:
+        //        TYPEE Type = new TYPEE();
+        //        Type.setLocationRelativeTo(null);
+        //        Type.setVisible(true);
+        //        this.setVisible(false);
+        TYPEE_TGGLE.setSelected(true);
+    }//GEN-LAST:event_TYPEE_TGGLEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -490,9 +611,10 @@ public class LeaderBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton LEADERBOARD_BTN;
+    private javax.swing.JToggleButton MUSIC_TGGLE;
+    private javax.swing.JToggleButton TYPEE_TGGLE;
+    private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -514,7 +636,9 @@ public class LeaderBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -524,6 +648,7 @@ public class LeaderBoard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

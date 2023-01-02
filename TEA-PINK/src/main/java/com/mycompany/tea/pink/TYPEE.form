@@ -24,14 +24,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" pref="1150" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel1" min="-2" pref="650" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -42,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="6c" green="36" red="9" type="rgb"/>
+          <Color blue="cc" green="ff" red="cc" type="rgb"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2000, 1000]"/>
@@ -59,7 +60,7 @@
         <Component class="javax.swing.JTextField" name="TYPE_TEXT">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="af" green="be" red="5a" type="rgb"/>
+              <Color blue="cc" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="18" style="1"/>
@@ -70,6 +71,7 @@
             <Property name="selectionEnd" type="int" value="2"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TYPE_TEXTFocusGained"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TYPE_TEXTKeyReleased"/>
           </Events>
           <Constraints>
@@ -96,29 +98,29 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" pref="160" max="32767" attributes="0"/>
+                  <Component id="TIME_LBL" alignment="0" pref="160" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" pref="180" max="32767" attributes="0"/>
+                  <Component id="TIME_LBL" alignment="0" pref="180" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="TIME_LBL">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8e" green="ed" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lemon Days" size="60" style="1"/>
+                  <Font name="Poppins ExtraBold" size="70" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="59"/>
+                <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -126,7 +128,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="70" red="7" type="rgb"/>
+              <Color blue="cc" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -153,7 +155,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel2" max="32767" attributes="0"/>
+                              <Component id="AVG_LBL" pref="116" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -162,47 +164,44 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
+                          <Component id="ACCURACY_LBL" alignment="1" max="32767" attributes="0"/>
+                          <Component id="AVERAGE_LBL" max="32767" attributes="0"/>
+                          <Component id="WRONG_WORD_LBL" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AVG_LBL" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="AVERAGE_LBL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="ACCURACY_LBL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="WRONG_WORD_LBL" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="AVG_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="60" style="1"/>
@@ -225,7 +224,7 @@
                 <Property name="text" type="java.lang.String" value="wpm"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="AVERAGE_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -236,7 +235,7 @@
                 <Property name="text" type="java.lang.String" value="AVG                                : 100 wpm"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="ACCURACY_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -245,17 +244,6 @@
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACCURACY                : 92%"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Poppins" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Correct Words         : 3 words"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -280,7 +268,7 @@
                 <Property name="text" type="java.lang.String" value="Words per Minute"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="WRONG_WORD_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -311,6 +299,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="REPLAY_BTNActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="730" y="370" width="160" height="60"/>
@@ -320,7 +311,7 @@
         <Container class="javax.swing.JPanel" name="TEXT_PANEL">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="9f" green="94" red="8" type="rgb"/>
+              <Color blue="cc" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[32767000, 32767]"/>
@@ -659,7 +650,7 @@
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="0" red="33" type="rgb"/>
+              <Color blue="cc" green="99" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -672,14 +663,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jLabel10" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="TYPE_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="LEADERBOARD_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="USERNAME_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
-                          <Component id="MUSIC_TGGLE" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                      <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="TYPEE_TGGLE" alignment="2" min="-2" pref="162" max="-2" attributes="0"/>
+                                  <Component id="LEADERBOARD_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="MUSIC_TGGLE" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="USERNAME_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel11" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel10" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
@@ -689,16 +684,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" pref="210" max="32767" attributes="0"/>
+                      <Component id="jLabel11" pref="201" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="TYPE_BTN" min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="TYPEE_TGGLE" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="LEADERBOARD_BTN" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="MUSIC_TGGLE" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       <Component id="USERNAME_BTN" min="-2" pref="47" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
@@ -706,29 +701,10 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="TYPE_BTN">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="78" green="b3" red="33" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Poppins" size="24" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="TYPE"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TYPE_BTNActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="LEADERBOARD_BTN">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="2c" green="46" red="33" type="rgb"/>
+                  <Color blue="0" green="0" red="66" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -768,6 +744,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="ADMIN"/>
               </Properties>
             </Component>
@@ -783,7 +760,7 @@
             <Component class="javax.swing.JToggleButton" name="MUSIC_TGGLE">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="0" red="0" type="rgb"/>
+                  <Color blue="0" green="0" red="66" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -797,6 +774,26 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MUSIC_TGGLEActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="TYPEE_TGGLE">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Poppins" size="18" style="1"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="TYPEE"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TYPEE_TGGLEActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
