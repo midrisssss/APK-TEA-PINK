@@ -23,11 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="1150" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" pref="1174" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -44,6 +40,9 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="ff" red="cc" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2000, 1000]"/>
@@ -68,6 +67,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="selectionEnd" type="int" value="2"/>
           </Properties>
           <Events>
@@ -91,14 +95,14 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="730" y="450" width="160" height="180"/>
+              <AbsoluteConstraints x="730" y="450" width="180" height="180"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TIME_LBL" alignment="0" pref="160" max="32767" attributes="0"/>
+                  <Component id="TIME_LBL" alignment="0" pref="180" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -160,13 +164,13 @@
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel8" max="32767" attributes="0"/>
+                          <Component id="WPM_LBL" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="ACCURACY_LBL" alignment="1" max="32767" attributes="0"/>
                           <Component id="AVERAGE_LBL" max="32767" attributes="0"/>
-                          <Component id="WRONG_WORD_LBL" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
+                          <Component id="KEYSTROKES_LBL" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -183,14 +187,14 @@
                                   <Component id="jLabel3" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="WPM_LBL" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="AVERAGE_LBL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ACCURACY_LBL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="WRONG_WORD_LBL" min="-2" max="-2" attributes="0"/>
+                              <Component id="KEYSTROKES_LBL" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -232,7 +236,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="AVG                                : 100 wpm"/>
+                <Property name="text" type="java.lang.String" value="AVG                                : 0 wpm"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="ACCURACY_LBL">
@@ -243,7 +247,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ACCURACY                : 92%"/>
+                <Property name="text" type="java.lang.String" value="ACCURACY                : 0%"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -256,7 +260,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="WPM_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="12" style="1"/>
@@ -268,7 +272,7 @@
                 <Property name="text" type="java.lang.String" value="Words per Minute"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="WRONG_WORD_LBL">
+            <Component class="javax.swing.JLabel" name="KEYSTROKES_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -276,7 +280,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Wrong Words           : 3 words"/>
+                <Property name="text" type="java.lang.String" value="KeyStrokes                : 0 ( 0 | 0 )"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -284,7 +288,7 @@
         <Component class="javax.swing.JButton" name="REPLAY_BTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+              <Color blue="99" green="ff" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="18" style="1"/>
@@ -304,7 +308,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="730" y="370" width="160" height="60"/>
+              <AbsoluteConstraints x="730" y="370" width="180" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -333,7 +337,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -378,7 +382,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -423,7 +427,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -468,7 +472,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -513,7 +517,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -558,7 +562,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -603,7 +607,7 @@
             <Container class="javax.swing.JPanel" name="TEXT_PANEL7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="94" red="8" type="rgb"/>
+                  <Color blue="cc" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -655,7 +659,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="910" y="0" width="240" height="650"/>
+              <AbsoluteConstraints x="930" y="0" width="250" height="650"/>
             </Constraint>
           </Constraints>
 
@@ -672,9 +676,9 @@
                                   <Component id="MUSIC_TGGLE" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
                                   <Component id="USERNAME_BTN" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel11" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
+                              <Component id="USER_IMG_LBL" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel10" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                          <Component id="USERNAME_LBL" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
@@ -684,9 +688,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" pref="201" max="32767" attributes="0"/>
+                      <Component id="USER_IMG_LBL" pref="201" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="USERNAME_LBL" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="TYPEE_TGGLE" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -739,7 +743,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="USERNAME_BTNActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="USERNAME_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="18" style="1"/>
@@ -748,7 +752,7 @@
                 <Property name="text" type="java.lang.String" value="ADMIN"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="USER_IMG_LBL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Poppins" size="24" style="1"/>
@@ -798,6 +802,23 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="USER : Muhammad Idris"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="40" y="10" width="-1" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

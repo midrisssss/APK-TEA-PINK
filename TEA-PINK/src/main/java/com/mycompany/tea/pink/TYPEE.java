@@ -18,11 +18,9 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
     Thread TIME;
     int Milisecond = 0;
     int Second = 0;
-    boolean state = true;
+    boolean state = false;
     double ACCURACY = 0;
     double AVERAGE = 0;
-    double CORRECT_WORD = 0;
-    int TOTAL_WAKTU = 0;
 
     ArrayList<String> USER_INFO = new ArrayList<>(); // USERNAME, AVERAGE, ACCURACY
 
@@ -31,15 +29,16 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
     String LAGU_ROW1 = "", LAGU_ROW2 = "", LAGU_ROW3 = "", LAGU_ROW4 = "", LAGU_ROW5 = "", LAGU_ROW6 = "", LAGU_ROW7 = ""; //LAGU BARIS KE 1-7
     int DISPLAY_WORD1 = 0, DISPLAY_WORD2 = 0, DISPLAY_WORD3 = 0, DISPLAY_WORD4 = 0, DISPLAY_WORD5 = 0, DISPLAY_WORD6 = 0, DISPLAY_WORD7 = 0;
     int TOTAL_WORDS = 0; // TOTAL KATA dlm ARRAY
-    int TOTAL_LETTER = 0; // TOTAL HURUF dlm ARRAY
-    int MUSIC_ON_OFF = 0; // MUSIC
+    int MUSIC_ON_OFF = 1; // MUSIC
     int COLOR_WORD1 = 0, COLOR_WORD2 = 0, COLOR_WORD3 = 0, COLOR_WORD4 = 0, COLOR_WORD5 = 0, COLOR_WORD6 = 0, COLOR_WORD7 = 0;
 
-    int i = 0, j = 0, k = 0;
+    int CORRECT = 0, LAGU_INDEX = 0, UNCORRECT = 0;
 
     /**
      *
      * Creates new form TYPEE
+     *
+     * @param USERNAME
      */
     public TYPEE() {
         initComponents();
@@ -52,9 +51,11 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
         String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia";
         String c = "aku .adalah .superman";
+        String d = "aku .adalah .batman";
+
         switch (LAGU_RANDOM) {
             case 0, 2, 4 ->
-                LIRIK_LAGU = c;
+                LIRIK_LAGU = d;
             case 1, 3, 5 ->
                 LIRIK_LAGU = c;
             default -> {
@@ -63,7 +64,6 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         LAGU = LIRIK_LAGU.split("\\.");
         TOTAL_WORDS = LAGU.length;
-        TOTAL_LETTER = LIRIK_LAGU.length();
 
         int DISPLAY_INDEX1 = 0, DISPLAY_INDEX2 = 0, DISPLAY_INDEX3 = 0, DISPLAY_INDEX4 = 0, DISPLAY_INDEX5 = 0, DISPLAY_INDEX6 = 0, DISPLAY_INDEX7 = 0;
 
@@ -131,71 +131,90 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         }
     }
 
-    void USER_DATA(ArrayList<String> ALL_USERNAME) {
-        AVERAGE = (60 / (Second / LAGU.length));
-        int AVG_INT = (int) AVERAGE;
-        AVERAGE_LBL.setText("AVG                                : " + AVG_INT + " wpm");
-        AVG_LBL.setText(Integer.toString(AVG_INT));
-        ACCURACY = (CORRECT_WORD / (LAGU.length / 100)); // note
-        WRONG_WORD_LBL.setText("Wrong Words           : " + (int) CORRECT_WORD + " words");
+    public void USER(ArrayList<String> USER_INFO) {
+        // ASIDE USER INFORMATION
+        USERNAME_LBL.setText("" + USER_INFO.get(0));
+        // ADD USERNAME TO USER_INFO <ArrayList>
+        USER_IMG_LBL.setText("" + USER_INFO);
+    }
+
+    void USER_DATA(double Second, double Total_Kata, int Benar, int Salah) {
+        // AVERAGE
+        AVERAGE = 60.0 / (Second / Total_Kata);
+        AVERAGE_LBL.setText("AVG                                : " + (int) AVERAGE + " wpm");
+        AVG_LBL.setText("" + (int) AVERAGE);
+        // ACCURACY
+        ACCURACY = (((double) Benar - (double) Salah) / ((double) Benar / 100.0));
         ACCURACY_LBL.setText("ACCURACY                : " + (int) ACCURACY + "%");
+        // KEYSTROKES
+        KEYSTROKES_LBL.setText("KeyStrokes                : " + (Benar + Salah) + " ( " + Benar + " | " + Salah + " ) ");
+        // ADD AVG TO USER_INFO(ArrayList)
+        USER_INFO.add(Integer.toString((int) AVERAGE));
+
+//        AVERAGE_JFRAME JFRAME_END = new AVERAGE_JFRAME(USER_INFO);
+//        JFRAME_END.setLocationRelativeTo(null);
+//        JFRAME_END.setVisible(true);
     }
 
     void REPLAY() {
-        TYPEE Type = new TYPEE();
-        Type.setVisible(true);
-
-//        ACCURACY_LBL.setText("ACCURACY                : 92%");
+//        Second = 0 ;
+//        Milisecond = 0;
+//        TIME_LBL.setText("0");
+//        TYPE_TEXT.setEditable(true);
+//        
+        LAGUU LAGUU = new LAGUU();
+        LAGUU.setLocationRelativeTo(null);
+        LAGUU.setVisible(true);
     }
 
     void Correct_Word() {
         TYPE_TEXT.setBackground(Color.white);
 
-        if (j < COLOR_WORD2) {
-            TEXT_LABEL1.setForeground(Color.ORANGE);
-        } else if (j < COLOR_WORD3) {
-            TEXT_LABEL2.setForeground(Color.ORANGE);
-        } else if (j < COLOR_WORD4) {
-            TEXT_LABEL3.setForeground(Color.ORANGE);
-        } else if (j < COLOR_WORD5) {
-            TEXT_LABEL4.setForeground(Color.ORANGE);
-        } else if (j < COLOR_WORD6) {
-            TEXT_LABEL5.setForeground(Color.ORANGE);
-        } else if (j < COLOR_WORD7) {
-            TEXT_LABEL6.setForeground(Color.ORANGE);
+        if (LAGU_INDEX < COLOR_WORD2) {
+            TEXT_LABEL1.setForeground(Color.white);
+        } else if (LAGU_INDEX < COLOR_WORD3) {
+            TEXT_LABEL2.setForeground(Color.white);
+        } else if (LAGU_INDEX < COLOR_WORD4) {
+            TEXT_LABEL3.setForeground(Color.white);
+        } else if (LAGU_INDEX < COLOR_WORD5) {
+            TEXT_LABEL4.setForeground(Color.white);
+        } else if (LAGU_INDEX < COLOR_WORD6) {
+            TEXT_LABEL5.setForeground(Color.white);
+        } else if (LAGU_INDEX < COLOR_WORD7) {
+            TEXT_LABEL6.setForeground(Color.white);
         }
-        if (j < COLOR_WORD1) {
-            TEXT_LABEL1.setForeground(Color.BLACK);
-        } else if (j < COLOR_WORD2) {
-            TEXT_LABEL2.setForeground(Color.BLACK);
-        } else if (j < COLOR_WORD3) {
-            TEXT_LABEL3.setForeground(Color.BLACK);
-        } else if (j < COLOR_WORD4) {
-            TEXT_LABEL4.setForeground(Color.BLACK);
-        } else if (j < COLOR_WORD5) {
-            TEXT_LABEL5.setForeground(Color.BLACK);
-        } else if (j < COLOR_WORD6) {
-            TEXT_LABEL6.setForeground(Color.BLACK);
+        if (LAGU_INDEX < COLOR_WORD1) {
+            TEXT_LABEL1.setForeground(Color.black);
+        } else if (LAGU_INDEX < COLOR_WORD2) {
+            TEXT_LABEL2.setForeground(Color.black);
+        } else if (LAGU_INDEX < COLOR_WORD3) {
+            TEXT_LABEL3.setForeground(Color.black);
+        } else if (LAGU_INDEX < COLOR_WORD4) {
+            TEXT_LABEL4.setForeground(Color.black);
+        } else if (LAGU_INDEX < COLOR_WORD5) {
+            TEXT_LABEL5.setForeground(Color.black);
+        } else if (LAGU_INDEX < COLOR_WORD6) {
+            TEXT_LABEL6.setForeground(Color.black);
         } else {
-            TEXT_LABEL7.setForeground(Color.BLACK);
+            TEXT_LABEL7.setForeground(Color.black);
         }
     }
 
     void UnCorrect_Word() {
         TYPE_TEXT.setBackground(Color.red);
-        if (j < COLOR_WORD1) {
+        if (LAGU_INDEX < COLOR_WORD1) {
             TEXT_LABEL1.setForeground(Color.RED);
-        } else if (j < COLOR_WORD2) {
+        } else if (LAGU_INDEX < COLOR_WORD2) {
             TEXT_LABEL2.setForeground(Color.RED);
-        } else if (j < COLOR_WORD3) {
+        } else if (LAGU_INDEX < COLOR_WORD3) {
             TEXT_LABEL3.setForeground(Color.RED);
-        } else if (j < COLOR_WORD4) {
+        } else if (LAGU_INDEX < COLOR_WORD4) {
             TEXT_LABEL4.setForeground(Color.RED);
-        } else if (j < COLOR_WORD5) {
+        } else if (LAGU_INDEX < COLOR_WORD5) {
             TEXT_LABEL5.setForeground(Color.RED);
-        } else if (j < COLOR_WORD6) {
+        } else if (LAGU_INDEX < COLOR_WORD6) {
             TEXT_LABEL6.setForeground(Color.RED);
-        } else { //if (j < (DISPLAY_WORD6 + DISPLAY_WORD7)) 
+        } else {
             TEXT_LABEL7.setForeground(Color.RED);
         }
     }
@@ -219,8 +238,8 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         AVERAGE_LBL = new javax.swing.JLabel();
         ACCURACY_LBL = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        WRONG_WORD_LBL = new javax.swing.JLabel();
+        WPM_LBL = new javax.swing.JLabel();
+        KEYSTROKES_LBL = new javax.swing.JLabel();
         REPLAY_BTN = new javax.swing.JButton();
         TEXT_PANEL = new javax.swing.JPanel();
         TEXT_PANEL1 = new javax.swing.JPanel();
@@ -240,14 +259,16 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         jPanel5 = new javax.swing.JPanel();
         LEADERBOARD_BTN = new javax.swing.JButton();
         USERNAME_BTN = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        USERNAME_LBL = new javax.swing.JLabel();
+        USER_IMG_LBL = new javax.swing.JLabel();
         MUSIC_TGGLE = new javax.swing.JToggleButton();
         TYPEE_TGGLE = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setForeground(java.awt.Color.white);
         jPanel1.setMinimumSize(new java.awt.Dimension(2000, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(2000, 900));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,6 +276,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         TYPE_TEXT.setBackground(new java.awt.Color(255, 153, 204));
         TYPE_TEXT.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         TYPE_TEXT.setForeground(java.awt.Color.black);
+        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TYPE_TEXT.setSelectionEnd(2);
         TYPE_TEXT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -281,14 +303,14 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+            .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 160, 180));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 180, 180));
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 204));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -304,23 +326,23 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         AVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         AVERAGE_LBL.setForeground(java.awt.Color.black);
-        AVERAGE_LBL.setText("AVG                                : 100 wpm");
+        AVERAGE_LBL.setText("AVG                                : 0 wpm");
 
         ACCURACY_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         ACCURACY_LBL.setForeground(java.awt.Color.black);
-        ACCURACY_LBL.setText("ACCURACY                : 92%");
+        ACCURACY_LBL.setText("ACCURACY                : 0%");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
         jLabel6.setForeground(java.awt.Color.black);
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
-        jLabel8.setForeground(java.awt.Color.black);
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Words per Minute");
+        WPM_LBL.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        WPM_LBL.setForeground(java.awt.Color.black);
+        WPM_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        WPM_LBL.setText("Words per Minute");
 
-        WRONG_WORD_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        WRONG_WORD_LBL.setForeground(java.awt.Color.black);
-        WRONG_WORD_LBL.setText("Wrong Words           : 3 words");
+        KEYSTROKES_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        KEYSTROKES_LBL.setForeground(java.awt.Color.black);
+        KEYSTROKES_LBL.setText("KeyStrokes                : 0 ( 0 | 0 )");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -339,12 +361,12 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addGap(45, 45, 45))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(WPM_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ACCURACY_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AVERAGE_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(WRONG_WORD_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -357,13 +379,13 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
                             .addComponent(AVG_LBL)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8))
+                        .addComponent(WPM_LBL))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(AVERAGE_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ACCURACY_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(WRONG_WORD_LBL)))
+                        .addComponent(KEYSTROKES_LBL)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -371,7 +393,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 670, 180));
 
-        REPLAY_BTN.setBackground(new java.awt.Color(204, 255, 255));
+        REPLAY_BTN.setBackground(new java.awt.Color(51, 255, 153));
         REPLAY_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         REPLAY_BTN.setForeground(java.awt.Color.black);
         REPLAY_BTN.setText("REPLAY");
@@ -381,14 +403,14 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
                 REPLAY_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 160, 60));
+        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 180, 60));
 
         TEXT_PANEL.setBackground(new java.awt.Color(255, 153, 204));
         TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
         TEXT_PANEL.setMinimumSize(new java.awt.Dimension(900, 900));
         TEXT_PANEL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TEXT_PANEL1.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL1.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL1.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL1.setForeground(java.awt.Color.black);
@@ -411,7 +433,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 630, -1));
 
-        TEXT_PANEL2.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL2.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL2.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL2.setForeground(java.awt.Color.black);
@@ -434,7 +456,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 630, -1));
 
-        TEXT_PANEL3.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL3.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL3.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL3.setForeground(java.awt.Color.black);
@@ -457,7 +479,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 630, -1));
 
-        TEXT_PANEL4.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL4.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL4.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL4.setForeground(java.awt.Color.black);
@@ -480,7 +502,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 630, -1));
 
-        TEXT_PANEL5.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL5.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL5.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL5.setForeground(java.awt.Color.black);
@@ -503,7 +525,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 630, -1));
 
-        TEXT_PANEL6.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL6.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL6.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL6.setForeground(java.awt.Color.black);
@@ -526,7 +548,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
         TEXT_PANEL.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 630, -1));
 
-        TEXT_PANEL7.setBackground(new java.awt.Color(8, 148, 159));
+        TEXT_PANEL7.setBackground(new java.awt.Color(255, 153, 204));
 
         TEXT_LABEL7.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
         TEXT_LABEL7.setForeground(java.awt.Color.black);
@@ -573,13 +595,13 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("ADMIN");
+        USERNAME_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        USERNAME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        USERNAME_LBL.setText("ADMIN");
 
-        jLabel11.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("NO IMAGE");
+        USER_IMG_LBL.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        USER_IMG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        USER_IMG_LBL.setText("NO IMAGE");
 
         MUSIC_TGGLE.setBackground(new java.awt.Color(102, 0, 0));
         MUSIC_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -615,17 +637,17 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
                             .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(USERNAME_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
+                .addComponent(USERNAME_LBL)
                 .addGap(49, 49, 49)
                 .addComponent(TYPEE_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -637,16 +659,19 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
                 .addGap(29, 29, 29))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 240, 650));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 250, 650));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.black);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("USER : Muhammad Idris");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1174, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,31 +685,36 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
     // [8,148,159]
     private void TYPE_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TYPE_TEXTKeyReleased
         // TODO add your handling code here:
+        String TYPE = TYPE_TEXT.getText();
+        if (TYPE.startsWith(LAGU[0].substring(0, 1)) && state == false) {
+            TIME = new Thread(this);
+            TIME.start();
+            state = true;
+            REPLAY_BTN.setVisible(false);
+        }
         try {
-            String TYPE = TYPE_TEXT.getText();
-
-            if (TYPE.equals(LAGU[j].substring(0, TYPE.length()))) {
+            if (TYPE.equals(LAGU[LAGU_INDEX].substring(0, TYPE.length()))) {
                 Correct_Word();
-                if (TYPE.equals(LAGU[j])) {
-                    j++;
+                CORRECT++;
+                if (TYPE.equals(LAGU[LAGU_INDEX])) {
+                    LAGU_INDEX++;
                     TYPE_TEXT.setText("");
                     if (TYPE.equals(LAGU[TOTAL_WORDS - 1])) {
                         state = false;
+                        USER_DATA(Second, TOTAL_WORDS, CORRECT, UNCORRECT);
 
-                        this.USER_DATA(USER_INFO);
-
+                        // BTN REPLAY VISIBLE
+                        REPLAY_BTN.setVisible(true);
                         TYPE_TEXT.setEditable(false);
-                        TEXT_LABEL7.setForeground(Color.ORANGE);
+                        TEXT_LABEL7.setForeground(Color.WHITE);
                         if (LAGU_ROW7.equals("")) {
-                            TEXT_LABEL6.setForeground(Color.ORANGE);
+                            TEXT_LABEL6.setForeground(Color.WHITE);
                         }
-                        AVERAGE_JFRAME JFRAME_END = new AVERAGE_JFRAME();
-                        JFRAME_END.setLocationRelativeTo(null);
-                        JFRAME_END.setVisible(true);
                     }
                 }
             } else {
                 UnCorrect_Word();
+                UNCORRECT++;
             }
         } catch (IndexOutOfBoundsException e) {
         }
@@ -718,9 +748,8 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
     private void TYPE_TEXTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TYPE_TEXTFocusGained
         // TODO add your handling code here:
-        TIME = new Thread(this);
-        TIME.start();
-        state = true;
+        TYPE_TEXT.setBackground(Color.white);
+        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.red));
     }//GEN-LAST:event_TYPE_TEXTFocusGained
 
     private void REPLAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REPLAY_BTNActionPerformed
@@ -730,10 +759,6 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
 
     private void TYPEE_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TYPEE_TGGLEActionPerformed
         // TODO add your handling code here:
-//        TYPEE Type = new TYPEE();
-//        Type.setLocationRelativeTo(null);
-//        Type.setVisible(true);
-//        this.setVisible(false);
         TYPEE_TGGLE.setSelected(true);
     }//GEN-LAST:event_TYPEE_TGGLEActionPerformed
 
@@ -764,9 +789,10 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new TYPEE().setVisible(true);
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TYPEE().setVisible(true);
+            }
         });
 
     }
@@ -775,6 +801,7 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel ACCURACY_LBL;
     private javax.swing.JLabel AVERAGE_LBL;
     private javax.swing.JLabel AVG_LBL;
+    private javax.swing.JLabel KEYSTROKES_LBL;
     private javax.swing.JButton LEADERBOARD_BTN;
     private javax.swing.JToggleButton MUSIC_TGGLE;
     private javax.swing.JButton REPLAY_BTN;
@@ -797,12 +824,12 @@ public class TYPEE extends javax.swing.JFrame implements Runnable {
     private javax.swing.JToggleButton TYPEE_TGGLE;
     private javax.swing.JTextField TYPE_TEXT;
     private javax.swing.JButton USERNAME_BTN;
-    private javax.swing.JLabel WRONG_WORD_LBL;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel USERNAME_LBL;
+    private javax.swing.JLabel USER_IMG_LBL;
+    private javax.swing.JLabel WPM_LBL;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

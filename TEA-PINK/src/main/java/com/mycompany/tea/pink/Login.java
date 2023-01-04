@@ -4,6 +4,7 @@
  */
 package com.mycompany.tea.pink;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,19 +17,10 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     /**
-     * Deklarasi Variabel USERNAME = username dimasukkan di dalam var ini
-     * ALL_USERNAME = var untuk arraylist username , semua username dimasukkan
-     * kedalam sini
-     */
-    ArrayList<String> ALL_USERNAME = new ArrayList<>();
-
-    //deklarasi variabel end
-    /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-
     }
 
     /**
@@ -76,16 +68,18 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(LOGIN_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 421, 130, 37));
 
         USERNAME_TEXT.setBackground(java.awt.Color.white);
+        USERNAME_TEXT.setColumns(15);
         USERNAME_TEXT.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         USERNAME_TEXT.setForeground(java.awt.Color.gray);
         USERNAME_TEXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         USERNAME_TEXT.setText("USERNAME");
         USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        USERNAME_TEXT.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+        USERNAME_TEXT.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                USERNAME_TEXTFocusGained(evt);
             }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                USERNAME_TEXTInputMethodTextChanged(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                USERNAME_TEXTFocusLost(evt);
             }
         });
         USERNAME_TEXT.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -111,9 +105,7 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -122,17 +114,17 @@ public class Login extends javax.swing.JFrame {
     private void LOGIN_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGIN_BTNActionPerformed
         // TODO add your handling code here:
         String USERNAME = USERNAME_TEXT.getText().toUpperCase();
-
-        if (USERNAME.equals("")) {
+        ArrayList<String> USER_INFO = new ArrayList<>();
+        
+        if (USERNAME.equals("") || USERNAME.equals("USERNAME")) {
             JOptionPane.showMessageDialog(null, "Username still Blank, PLease input username!", "A message", JOptionPane.OK_OPTION);
         } else {
-            int input = JOptionPane.showConfirmDialog(null, ("SELAMAT DATANG " + USERNAME + "!"), "Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int input = JOptionPane.showConfirmDialog(null, ("Your Username is " + USERNAME + " ? "), "Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (input == 0) {
-                // add username to ALL_USERNAME(arraylist)
-                ALL_USERNAME.add(USERNAME);
-
+                USER_INFO.add(USERNAME);
                 // to TYPEE page
                 TYPEE Type = new TYPEE();
+                Type.USER(USER_INFO);
                 Type.setLocationRelativeTo(null);
                 Type.setVisible(true);
                 this.setVisible(false);
@@ -140,21 +132,31 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LOGIN_BTNActionPerformed
 
-    private void USERNAME_TEXTInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_USERNAME_TEXTInputMethodTextChanged
-        // TODO add your handling code here:
-        String USERNAME = USERNAME_TEXT.getText().toUpperCase();
-
-
-    }//GEN-LAST:event_USERNAME_TEXTInputMethodTextChanged
-
     private void USERNAME_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_USERNAME_TEXTKeyReleased
         // TODO add your handling code here:
         String USERNAME = USERNAME_TEXT.getText();
-        String USERNAME_15 = USERNAME.substring(0,15);
+        String USERNAME_15 = USERNAME.substring(0, 15);
         if (USERNAME.length() > 15) {
             USERNAME_TEXT.setText(USERNAME_15);
         }
     }//GEN-LAST:event_USERNAME_TEXTKeyReleased
+
+    private void USERNAME_TEXTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_USERNAME_TEXTFocusGained
+        // TODO add your handling code here:
+        USERNAME_TEXT.setText("");
+        USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
+        ALERT_LBL.setForeground(Color.RED);
+    }//GEN-LAST:event_USERNAME_TEXTFocusGained
+
+    private void USERNAME_TEXTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_USERNAME_TEXTFocusLost
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_TEXT.getText();
+        if (USERNAME.equals("")) {
+            USERNAME_TEXT.setText("USERNAME");
+        }
+        USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, null));
+        ALERT_LBL.setForeground(Color.black);
+    }//GEN-LAST:event_USERNAME_TEXTFocusLost
 
     /**
      * @param args the command line arguments
@@ -200,8 +202,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
-    ArrayList<String> ALL_USERNAME() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

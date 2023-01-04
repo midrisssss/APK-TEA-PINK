@@ -4,6 +4,8 @@
  */
 package com.mycompany.tea.pink;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author USER
@@ -13,8 +15,9 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
     /**
      * Creates new form AVERAGE_JFRAME
      */
-    public AVERAGE_JFRAME() {
+    public AVERAGE_JFRAME(ArrayList<String> USER_INFO) {
         initComponents();
+        USERNAME_JFRAME.setText(""+ USER_INFO.get(0));
     }
 
     /**
@@ -33,7 +36,7 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
         CORRECT_JFRAME = new javax.swing.JLabel();
         WRONG_JFRAME = new javax.swing.JLabel();
         USERNAME_JFRAME = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        WPM_LBL = new javax.swing.JLabel();
         EXIT_JFRAME = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,9 +68,9 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
         USERNAME_JFRAME.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         USERNAME_JFRAME.setText("MUHAMMAD IDRIS");
 
-        jLabel7.setFont(new java.awt.Font("Poppins", 1, 10)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Words Per Minute");
+        WPM_LBL.setFont(new java.awt.Font("Poppins", 1, 10)); // NOI18N
+        WPM_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        WPM_LBL.setText("Words Per Minute");
 
         EXIT_JFRAME.setFont(new java.awt.Font("Poppins ExtraBold", 1, 36)); // NOI18N
         EXIT_JFRAME.setForeground(java.awt.Color.black);
@@ -91,7 +94,7 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7)
+                        .addComponent(WPM_LBL)
                         .addGap(64, 64, 64)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(AVG_JFRAME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -127,7 +130,7 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
                         .addGap(37, 37, 37)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(WRONG_JFRAME, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(WPM_LBL))
                 .addGap(69, 69, 69))
         );
 
@@ -196,8 +199,8 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
     private javax.swing.JLabel CORRECT_JFRAME;
     private javax.swing.JLabel EXIT_JFRAME;
     private javax.swing.JLabel USERNAME_JFRAME;
+    private javax.swing.JLabel WPM_LBL;
     private javax.swing.JLabel WRONG_JFRAME;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
