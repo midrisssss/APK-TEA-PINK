@@ -154,7 +154,7 @@ public class AVERAGE_JFRAME extends javax.swing.JFrame {
 
     private void EXIT_JFRAMEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EXIT_JFRAMEMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_EXIT_JFRAMEMouseClicked
 
     /**

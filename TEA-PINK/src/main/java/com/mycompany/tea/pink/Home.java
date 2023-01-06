@@ -45,6 +45,7 @@ public class Home extends javax.swing.JFrame {
         PLAY_LBL.setForeground(new java.awt.Color(0, 153, 153));
         PLAY_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PLAY_LBL.setText("PLAY");
+        PLAY_LBL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PLAY_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PLAY_LBLMouseClicked(evt);
