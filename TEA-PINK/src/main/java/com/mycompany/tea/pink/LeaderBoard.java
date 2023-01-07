@@ -24,6 +24,7 @@ public class LeaderBoard extends javax.swing.JFrame {
         EASY_ = EASY;
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
+//        LEADERBOARD_MEDIUM(MEDIUM_);
         LEADERBOARD_EASY(EASY_);
     }
 //
@@ -37,47 +38,59 @@ public class LeaderBoard extends javax.swing.JFrame {
         HARD_PNL.setBackground(new java.awt.Color(51, 51, 51));
 
         for (int i = 0; i < EASY_.size(); i++) {
+            double A;
             if (i % 2 == 0) {
                 switch (i) {
                     case 0:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL0.setText("" + EASY.get(i));
-                        AVG_LBL0.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL0.setText("" + (int) A + "wpm");
                         break;
                     case 2:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL1.setText("" + EASY.get(i));
-                        AVG_LBL1.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL1.setText("" + (int) A + "wpm");
                         break;
                     case 4:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL2.setText("" + EASY.get(i));
-                        AVG_LBL2.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL2.setText("" + (int) A + "wpm");
                         break;
                     case 6:
+                        A = Double.parseDouble(EASY.get(1 + i));
+
                         NAME_LBL3.setText("" + EASY.get(i));
-                        AVG_LBL3.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL3.setText("" + (int) A + "wpm");
                         break;
                     case 8:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL4.setText("" + EASY.get(i));
-                        AVG_LBL4.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL4.setText("" + (int) A + "wpm");
                         break;
                     case 10:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL5.setText("" + EASY.get(i));
-                        AVG_LBL5.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL5.setText("" + (int) A + "wpm");
                         break;
                     case 12:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL6.setText("" + EASY.get(i));
-                        AVG_LBL6.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL6.setText("" + (int) A + "wpm");
                         break;
                     case 14:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL7.setText("" + EASY.get(i));
-                        AVG_LBL7.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL7.setText("" + (int) A + "wpm");
                         break;
                     case 16:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL8.setText("" + EASY.get(i));
-                        AVG_LBL8.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL8.setText("" + (int) A + "wpm");
                         break;
                     case 18:
+                        A = Double.parseDouble(EASY.get(1 + i));
                         NAME_LBL9.setText("" + EASY.get(i));
-                        AVG_LBL9.setText("" + EASY.get(1 + i) + "wpm");
+                        AVG_LBL9.setText("" + (int) A + "wpm");
                         break;
                     default:
                         break;
@@ -90,6 +103,66 @@ public class LeaderBoard extends javax.swing.JFrame {
         EASY_PNL.setBackground(new java.awt.Color(51, 51, 51));
         MEDIUM_PNL.setBackground(new java.awt.Color(255, 153, 0));
         HARD_PNL.setBackground(new java.awt.Color(51, 51, 51));
+
+        for (int i = 0; i < MEDIUM_.size(); i++) {
+            double A;
+            if (i % 2 == 0) {
+                switch (i) {
+                    case 0:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL0.setText("" + MEDIUM.get(i));
+                        AVG_LBL0.setText("" + (int) A + "wpm");
+                        break;
+                    case 2:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL1.setText("" + MEDIUM.get(i));
+                        AVG_LBL1.setText("" + (int) A + "wpm");
+                        break;
+                    case 4:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL2.setText("" + MEDIUM.get(i));
+                        AVG_LBL2.setText("" + (int) A + "wpm");
+                        break;
+                    case 6:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL3.setText("" + MEDIUM_.get(i));
+                        AVG_LBL3.setText("" + (int) A + "wpm");
+                        break;
+                    case 8:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL4.setText("" + MEDIUM_.get(i));
+                        AVG_LBL4.setText("" + (int) A + "wpm");
+                        break;
+                    case 10:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL5.setText("" + MEDIUM_.get(i));
+                        AVG_LBL5.setText("" + (int) A + "wpm");
+                        break;
+                    case 12:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL6.setText("" + MEDIUM_.get(i));
+                        AVG_LBL6.setText("" + (int) A + "wpm");
+                        break;
+                    case 14:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL7.setText("" + MEDIUM_.get(i));
+                        AVG_LBL7.setText("" + (int) A + "wpm");
+                        break;
+                    case 16:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL8.setText("" + MEDIUM_.get(i));
+                        AVG_LBL8.setText("" + (int) A + "wpm");
+                        break;
+                    case 18:
+                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        NAME_LBL9.setText("" + MEDIUM_.get(i));
+                        AVG_LBL9.setText("" + (int) A + "wpm");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 
     void LEADERBOARD_HARD(ArrayList<String> HARD) {
@@ -728,14 +801,12 @@ public class LeaderBoard extends javax.swing.JFrame {
     private void MEDIUM_LBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEDIUM_LBTNMouseClicked
         // TODO add your handling code here:
         RESET();
-
         LEADERBOARD_MEDIUM(MEDIUM_);
     }//GEN-LAST:event_MEDIUM_LBTNMouseClicked
 
     private void HARD_LBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HARD_LBTNMouseClicked
         // TODO add your handling code here:
         RESET();
-
         LEADERBOARD_HARD(HARD_);
     }//GEN-LAST:event_HARD_LBTNMouseClicked
 
