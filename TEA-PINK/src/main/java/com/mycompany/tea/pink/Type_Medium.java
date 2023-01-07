@@ -19,7 +19,7 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
     // TIME
     Thread TIME;
     int Milisecond = 50;
-    int Second = 10;
+    int Second = 60;
     boolean state = false;
     // ARRAYLIST FOR EASY MEDIUM AND HARD DATA (USERNAME, AVERAGE)
     ArrayList<String> EASY_ = new ArrayList<>(); // USERNAME, AVERAGE
@@ -71,9 +71,6 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
 
         WORD = A_SPLIT[WORD_RANDOM];
         TEXT_LBL.setText(WORD);
-        System.out.println(WORD_RANDOM);
-        System.out.println(WORD);
-        System.out.println(A_SPLIT);
     }
 
     public void run() {
