@@ -20,8 +20,8 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
 
     //TIME
     Thread TIME;
-    int Milisecond = 50;
-    int Second = 60;
+    int Milisecond = 0;
+    int Second = 0;
     boolean state = false; // STATUS TIMER BERJALAN ATAU TIDAKNYA
     // ARRAY LIST FOR EASY MEDIUM AND HARD DATA(USERNAME, AVERAGE)
     ArrayList<String> EASY_ = new ArrayList<>(); // USERNAME, AVERAGE
@@ -49,24 +49,11 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     }
 
     public void LAGU() {
-        int LAGU_RANDOM = (int) (Math.random() * 5);
-        String LIRIK_LAGU = null; // LIRIK LAGU FULL
 
-        String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
-        String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia";
-        String c = "aku .adalah .superman";
-        String d = "aku .adalah .batman";
-
-        switch (LAGU_RANDOM) {
-            case 0, 2, 4 ->
-                LIRIK_LAGU = b;
-            case 1, 3, 5 ->
-                LIRIK_LAGU = a;
-            default -> {
-            }
-        }
-
-        LAGU = LIRIK_LAGU.split("\\.");
+        Lirik_Lagu LIRIKLAGU = new Lirik_Lagu();
+        LIRIKLAGU.Lirik_Lagu(19);
+        String LAGUUUUU = LIRIKLAGU.LIRIK_LAGU;
+        LAGU = LAGUUUUU.split("\\.");
         TOTAL_WORDS = LAGU.length;
 
         String LAGU_ROW1 = "", LAGU_ROW2 = "", LAGU_ROW3 = "", LAGU_ROW4 = "", LAGU_ROW5 = "", LAGU_ROW6 = ""; //LAGU BARIS KE 1-7
@@ -75,27 +62,27 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         int DISPLAY_INDEX1 = 0, DISPLAY_INDEX2 = 0, DISPLAY_INDEX3 = 0, DISPLAY_INDEX4 = 0, DISPLAY_INDEX5 = 0, DISPLAY_INDEX6 = 0, DISPLAY_INDEX7 = 0;
 
         for (int row = 0; row < LAGU.length; row++) {
-            if (((DISPLAY_INDEX1 + LAGU[row].length()) <= 38) && LAGU_ROW2.equals("")) {
+            if (((DISPLAY_INDEX1 + LAGU[row].length()) <= 46) && LAGU_ROW2.equals("")) {
                 ++DISPLAY_WORD1;
                 DISPLAY_INDEX1 += LAGU[row].length();
                 LAGU_ROW1 += LAGU[row];
-            } else if (((DISPLAY_INDEX2 + LAGU[row].length()) <= 38) && LAGU_ROW3.equals("")) {
+            } else if (((DISPLAY_INDEX2 + LAGU[row].length()) <= 46) && LAGU_ROW3.equals("")) {
                 ++DISPLAY_WORD2;
                 DISPLAY_INDEX2 += LAGU[row].length();
                 LAGU_ROW2 += LAGU[row];
-            } else if (((DISPLAY_INDEX3 + LAGU[row].length()) <= 38) && LAGU_ROW4.equals("")) {
+            } else if (((DISPLAY_INDEX3 + LAGU[row].length()) <= 46) && LAGU_ROW4.equals("")) {
                 ++DISPLAY_WORD3;
                 DISPLAY_INDEX3 += LAGU[row].length();
                 LAGU_ROW3 += LAGU[row];
-            } else if (((DISPLAY_INDEX4 + LAGU[row].length()) <= 38) && LAGU_ROW5.equals("")) {
+            } else if (((DISPLAY_INDEX4 + LAGU[row].length()) <= 46) && LAGU_ROW5.equals("")) {
                 ++DISPLAY_WORD4;
                 DISPLAY_INDEX4 += LAGU[row].length();
                 LAGU_ROW4 += LAGU[row];
-            } else if (((DISPLAY_INDEX5 + LAGU[row].length()) <= 38) && LAGU_ROW6.equals("")) {
+            } else if (((DISPLAY_INDEX5 + LAGU[row].length()) <= 46) && LAGU_ROW6.equals("")) {
                 ++DISPLAY_WORD5;
                 DISPLAY_INDEX5 += LAGU[row].length();
                 LAGU_ROW5 += LAGU[row];
-            } else if (((DISPLAY_INDEX6 + LAGU[row].length()) <= 38) && LAGU_ROW7.equals("")) {
+            } else if (((DISPLAY_INDEX6 + LAGU[row].length()) <= 46) && LAGU_ROW7.equals("")) {
                 ++DISPLAY_WORD6;
                 DISPLAY_INDEX6 += LAGU[row].length();
                 LAGU_ROW6 += LAGU[row];
@@ -127,7 +114,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             while (state == true) {
                 Milisecond++;
                 TIME.sleep(19);
-                if (Milisecond > 59) {
+                if (Milisecond > 50) {
                     Milisecond = 0;
                     Second++;
                 }
@@ -145,9 +132,10 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         EASY_ = EASY;
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
-        
+
         int USER_SAMA = EASY_.indexOf(USERNAME);
         if (USER_SAMA == -1) {
+//            GUIDE();
             CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
         } else {
             double HIGHSCOREEE = Double.parseDouble(EASY_.get(USER_SAMA + 1));
@@ -299,48 +287,37 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     }
 
     void TYPE_CHECKER(String TYPE) {
-        try {
-            try {
-                String a = LAGU[LAGU_INDEX];
-                String b = a.substring(0, TYPE.length());
+        String a = LAGU[LAGU_INDEX];
+        String b = a.substring(0, TYPE.length());
 
-                if (TYPE.equals(b)) {
-                    Correct_Word();
-                    CORRECT++;
-                } else {
-                    UnCorrect_Word();
-                    UNCORRECT++;
-                }
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("aaaaaaaaa");
-                String a = LAGU[LAGU_INDEX];
-                String b = a.substring(0, TYPE.length());
-
-                if (TYPE.equals(b)) {
-                    Correct_Word();
-                    CORRECT++;
-                } else {
-                    UnCorrect_Word();
-                    UNCORRECT++;
-                }
-            }
-            try {
-                if (TYPE.equals(LAGU[LAGU_INDEX])) {
-                    LAGU_INDEX++;
-                    TYPE_TEXT.setText("");
-                }
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("ahaaaaaa");
-                if (TYPE.equals(LAGU[LAGU_INDEX])) {
-                    LAGU_INDEX++;
-                    TYPE_TEXT.setText("");
-                }
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("aaaaaaaassssssssssssssssssssssssssssssssssssssaa");
+        if (TYPE.equals(b)) {
+            Correct_Word();
+            CORRECT++;
+        } else {
+            UnCorrect_Word();
+            UNCORRECT++;
+        }
+        if (TYPE.equals(LAGU[LAGU_INDEX])) {
+            LAGU_INDEX++;
+            TYPE_TEXT.setText("");
         }
     }
 
+//    void GUIDE() {
+//        TYPE_TEXT.setVisible(false);
+//        TYPE_TEXT.setVisible(false);
+//        SCORE_PNL.setVisible(false);
+//        TIME_PNL.setVisible(false);
+//        REPLAY_BTN.setVisible(false);
+//
+//        HARD_BTN.setVisible(false);
+//        MEDIUM_BTN.setVisible(false);
+//        EASY_BTN.setVisible(false);
+//
+//        ASIDE_PNL.setVisible(false);
+//
+//        GUIDE2_PNL.setVisible(false);
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -350,11 +327,19 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Type_Easy_PNL = new javax.swing.JPanel();
+        GUIDE1_PNL = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextArea1 = new javax.swing.JTextArea();
+        NEXT1_BTN = new javax.swing.JButton();
+        GUIDE2_PNL = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextArea2 = new javax.swing.JTextArea();
+        NEXT2_BTN = new javax.swing.JButton();
         TYPE_TEXT = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        TIME_PNL = new javax.swing.JPanel();
         TIME_LBL = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        SCORE_PNL = new javax.swing.JPanel();
         AVG_LBL = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         AVERAGE_LBL = new javax.swing.JLabel();
@@ -378,7 +363,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         TEXT_LABEL6 = new javax.swing.JLabel();
         TEXT_PANEL7 = new javax.swing.JPanel();
         TEXT_LABEL7 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        ASIDE_PNL = new javax.swing.JPanel();
         LEADERBOARD_BTN = new javax.swing.JButton();
         USERNAME_BTN = new javax.swing.JButton();
         USERNAME_LBL = new javax.swing.JLabel();
@@ -397,11 +382,122 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1600, 800));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel1.setForeground(java.awt.Color.white);
-        jPanel1.setMinimumSize(new java.awt.Dimension(2000, 1000));
-        jPanel1.setPreferredSize(new java.awt.Dimension(2000, 1100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Type_Easy_PNL.setBackground(new java.awt.Color(204, 255, 204));
+        Type_Easy_PNL.setForeground(java.awt.Color.white);
+        Type_Easy_PNL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Type_Easy_PNL.setMinimumSize(new java.awt.Dimension(2000, 1000));
+        Type_Easy_PNL.setPreferredSize(new java.awt.Dimension(2000, 1100));
+        Type_Easy_PNL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        GUIDE1_PNL.setBackground(new java.awt.Color(0, 51, 255));
+
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        jLabel1.setText("1 . Board ");
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(0, 51, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("ini adalah teks, ketiklah kata-kata \nyang ada di dalam papan teks ini\nke dalam papan ketik(Type Board), \nScore anda dihitung berdasarkan\nkecepatan anda mengetik teks ini.");
+        jTextArea1.setBorder(null);
+
+        NEXT1_BTN.setBackground(new java.awt.Color(51, 0, 153));
+        NEXT1_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        NEXT1_BTN.setText("Next");
+        NEXT1_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NEXT1_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NEXT1_BTNActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout GUIDE1_PNLLayout = new javax.swing.GroupLayout(GUIDE1_PNL);
+        GUIDE1_PNL.setLayout(GUIDE1_PNLLayout);
+        GUIDE1_PNLLayout.setHorizontalGroup(
+            GUIDE1_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GUIDE1_PNLLayout.createSequentialGroup()
+                .addGroup(GUIDE1_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GUIDE1_PNLLayout.createSequentialGroup()
+                        .addContainerGap(195, Short.MAX_VALUE)
+                        .addComponent(NEXT1_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(GUIDE1_PNLLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(GUIDE1_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextArea1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(GUIDE1_PNLLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        GUIDE1_PNLLayout.setVerticalGroup(
+            GUIDE1_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GUIDE1_PNLLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NEXT1_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        Type_Easy_PNL.add(GUIDE1_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, 320, 220));
+
+        GUIDE2_PNL.setBackground(new java.awt.Color(0, 51, 255));
+
+        jLabel2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        jLabel2.setText("2 . TYPE BOARD");
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(0, 51, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        jTextArea2.setRows(5);
+        jTextArea2.setText("ini adalah papan ketik, ketiklah semua \nkata-kata di atas, anda akan melihat \nkecepatan/Average anda mengetik");
+        jTextArea2.setBorder(null);
+
+        NEXT2_BTN.setBackground(new java.awt.Color(51, 0, 153));
+        NEXT2_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        NEXT2_BTN.setText("Next");
+        NEXT2_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NEXT2_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NEXT2_BTNActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout GUIDE2_PNLLayout = new javax.swing.GroupLayout(GUIDE2_PNL);
+        GUIDE2_PNL.setLayout(GUIDE2_PNLLayout);
+        GUIDE2_PNLLayout.setHorizontalGroup(
+            GUIDE2_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GUIDE2_PNLLayout.createSequentialGroup()
+                .addGroup(GUIDE2_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GUIDE2_PNLLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NEXT2_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(GUIDE2_PNLLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(GUIDE2_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextArea2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                            .addGroup(GUIDE2_PNLLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        GUIDE2_PNLLayout.setVerticalGroup(
+            GUIDE2_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GUIDE2_PNLLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NEXT2_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        Type_Easy_PNL.add(GUIDE2_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, -1, -1));
 
         TYPE_TEXT.setBackground(new java.awt.Color(255, 153, 204));
         TYPE_TEXT.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -418,10 +514,10 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 TYPE_TEXTKeyReleased(evt);
             }
         });
-        jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 810, 60));
+        Type_Easy_PNL.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 810, 60));
 
-        jPanel2.setBackground(java.awt.Color.yellow);
-        jPanel2.setForeground(java.awt.Color.black);
+        TIME_PNL.setBackground(java.awt.Color.yellow);
+        TIME_PNL.setForeground(java.awt.Color.black);
 
         TIME_LBL.setBackground(new java.awt.Color(51, 237, 142));
         TIME_LBL.setFont(new java.awt.Font("Poppins ExtraBold", 1, 70)); // NOI18N
@@ -429,21 +525,21 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         TIME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TIME_LBL.setText("0");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TIME_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+        javax.swing.GroupLayout TIME_PNLLayout = new javax.swing.GroupLayout(TIME_PNL);
+        TIME_PNL.setLayout(TIME_PNLLayout);
+        TIME_PNLLayout.setHorizontalGroup(
+            TIME_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        TIME_PNLLayout.setVerticalGroup(
+            TIME_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 180, 180));
+        Type_Easy_PNL.add(TIME_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 180, 180));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 204));
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SCORE_PNL.setBackground(new java.awt.Color(255, 153, 204));
+        SCORE_PNL.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         AVG_LBL.setFont(new java.awt.Font("Poppins", 1, 60)); // NOI18N
         AVG_LBL.setForeground(java.awt.Color.black);
@@ -478,43 +574,43 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         TIME_SECOND_LBL.setForeground(java.awt.Color.black);
         TIME_SECOND_LBL.setText("Time                               : 0 Second");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout SCORE_PNLLayout = new javax.swing.GroupLayout(SCORE_PNL);
+        SCORE_PNL.setLayout(SCORE_PNLLayout);
+        SCORE_PNLLayout.setHorizontalGroup(
+            SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SCORE_PNLLayout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(SCORE_PNLLayout.createSequentialGroup()
+                .addGroup(SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SCORE_PNLLayout.createSequentialGroup()
                         .addContainerGap(42, Short.MAX_VALUE)
                         .addComponent(AVG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addGap(91, 91, 91))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(SCORE_PNLLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(WPM_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ACCURACY_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AVERAGE_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TIME_SECOND_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        SCORE_PNLLayout.setVerticalGroup(
+            SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SCORE_PNLLayout.createSequentialGroup()
+                .addGroup(SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SCORE_PNLLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AVG_LBL)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(SCORE_PNLLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(AVERAGE_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -522,7 +618,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(KEYSTROKES_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(SCORE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TIME_SECOND_LBL)
                             .addComponent(WPM_LBL))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -530,7 +626,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 810, 180));
+        Type_Easy_PNL.add(SCORE_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 810, 180));
 
         TEXT_PANEL.setBackground(new java.awt.Color(255, 153, 204));
         TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
@@ -558,7 +654,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             .addComponent(TEXT_LABEL1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 770, -1));
 
         TEXT_PANEL2.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -574,14 +670,14 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL2Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL2Layout.setVerticalGroup(
             TEXT_PANEL2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 770, -1));
 
         TEXT_PANEL3.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -597,14 +693,14 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL3Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL3Layout.setVerticalGroup(
             TEXT_PANEL3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 770, -1));
 
         TEXT_PANEL4.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -620,14 +716,14 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL4Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL4Layout.setVerticalGroup(
             TEXT_PANEL4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 770, -1));
 
         TEXT_PANEL5.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -643,14 +739,14 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL5Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL5Layout.setVerticalGroup(
             TEXT_PANEL5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 770, -1));
 
         TEXT_PANEL6.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -666,14 +762,14 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL6Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL6Layout.setVerticalGroup(
             TEXT_PANEL6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 770, -1));
 
         TEXT_PANEL7.setBackground(new java.awt.Color(255, 153, 204));
 
@@ -689,18 +785,18 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             TEXT_PANEL7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANEL7Layout.createSequentialGroup()
                 .addComponent(TEXT_LABEL7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(751, Short.MAX_VALUE))
         );
         TEXT_PANEL7Layout.setVerticalGroup(
             TEXT_PANEL7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TEXT_LABEL7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        TEXT_PANEL.add(TEXT_PANEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 630, -1));
+        TEXT_PANEL.add(TEXT_PANEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 770, -1));
 
-        jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
+        Type_Easy_PNL.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
 
-        jPanel5.setBackground(new java.awt.Color(255, 153, 204));
+        ASIDE_PNL.setBackground(new java.awt.Color(255, 153, 204));
 
         LEADERBOARD_BTN.setBackground(new java.awt.Color(102, 0, 0));
         LEADERBOARD_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -754,13 +850,13 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+        javax.swing.GroupLayout ASIDE_PNLLayout = new javax.swing.GroupLayout(ASIDE_PNL);
+        ASIDE_PNL.setLayout(ASIDE_PNLLayout);
+        ASIDE_PNLLayout.setHorizontalGroup(
+            ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ASIDE_PNLLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(USERNAME_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -769,9 +865,9 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                     .addComponent(EXIT_TYPEE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        ASIDE_PNLLayout.setVerticalGroup(
+            ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ASIDE_PNLLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -787,19 +883,19 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 .addGap(31, 31, 31))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 260, 710));
+        Type_Easy_PNL.add(ASIDE_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 260, 710));
 
         CURRENTUSER_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         CURRENTUSER_LBL.setForeground(java.awt.Color.black);
         CURRENTUSER_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         CURRENTUSER_LBL.setText("USER : Muhammad Idris");
-        jPanel1.add(CURRENTUSER_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
+        Type_Easy_PNL.add(CURRENTUSER_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
 
         HIGHAVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         HIGHAVERAGE_LBL.setForeground(java.awt.Color.black);
         HIGHAVERAGE_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         HIGHAVERAGE_LBL.setText("HIGH AVERAGE : 0wpm");
-        jPanel1.add(HIGHAVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 300, 30));
+        Type_Easy_PNL.add(HIGHAVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 300, 30));
 
         REPLAY_BTN.setBackground(new java.awt.Color(51, 255, 153));
         REPLAY_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -812,10 +908,11 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 REPLAY_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 180, 60));
+        Type_Easy_PNL.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 180, 60));
 
         EASY_BTN.setBackground(new java.awt.Color(0, 0, 205));
         EASY_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        EASY_BTN.setSelected(true);
         EASY_BTN.setText("EASY");
         EASY_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         EASY_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -824,14 +921,19 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 EASY_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(EASY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 180, 60));
+        Type_Easy_PNL.add(EASY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 180, 60));
 
         HARD_BTN.setBackground(new java.awt.Color(0, 0, 120));
         HARD_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         HARD_BTN.setText("HARD");
         HARD_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         HARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(HARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 180, 60));
+        HARD_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HARD_BTNActionPerformed(evt);
+            }
+        });
+        Type_Easy_PNL.add(HARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 180, 60));
 
         MEDIUM_BTN.setBackground(new java.awt.Color(0, 0, 153));
         MEDIUM_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
@@ -843,18 +945,18 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
                 MEDIUM_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(MEDIUM_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, 180, 60));
+        Type_Easy_PNL.add(MEDIUM_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, 180, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Type_Easy_PNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Type_Easy_PNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -931,6 +1033,32 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         this.setVisible(false);
     }//GEN-LAST:event_MEDIUM_BTNActionPerformed
 
+    private void HARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HARD_BTNActionPerformed
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_LBL.getText();
+        Type_Hard HARD = new Type_Hard();
+        HARD.USER(USERNAME, EASY_, MEDIUM_, HARD_);
+        HARD.setLocationRelativeTo(null);
+        HARD.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HARD_BTNActionPerformed
+
+    private void NEXT1_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEXT1_BTNActionPerformed
+        // TODO add your handling code here:
+        GUIDE1_PNL.setVisible(false);
+
+        GUIDE2_PNL.setVisible(true);
+        TYPE_TEXT.setVisible(true);
+
+    }//GEN-LAST:event_NEXT1_BTNActionPerformed
+
+    private void NEXT2_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEXT2_BTNActionPerformed
+        // TODO add your handling code here:
+        GUIDE2_PNL.setVisible(false);
+
+        SCORE_PNL.setVisible(true);
+    }//GEN-LAST:event_NEXT2_BTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -966,18 +1094,24 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ACCURACY_LBL;
+    private javax.swing.JPanel ASIDE_PNL;
     private javax.swing.JLabel AVERAGE_LBL;
     private javax.swing.JLabel AVG_LBL;
     private javax.swing.JLabel CURRENTUSER_LBL;
     private javax.swing.JToggleButton EASY_BTN;
     private javax.swing.JButton EXIT_TYPEE;
+    private javax.swing.JPanel GUIDE1_PNL;
+    private javax.swing.JPanel GUIDE2_PNL;
     private javax.swing.JToggleButton HARD_BTN;
     private javax.swing.JLabel HIGHAVERAGE_LBL;
     private javax.swing.JLabel KEYSTROKES_LBL;
     private javax.swing.JButton LEADERBOARD_BTN;
     private javax.swing.JToggleButton MEDIUM_BTN;
     private javax.swing.JToggleButton MUSIC_TGGLE;
+    private javax.swing.JButton NEXT1_BTN;
+    private javax.swing.JButton NEXT2_BTN;
     private javax.swing.JButton REPLAY_BTN;
+    private javax.swing.JPanel SCORE_PNL;
     private javax.swing.JLabel TEXT_LABEL1;
     private javax.swing.JLabel TEXT_LABEL2;
     private javax.swing.JLabel TEXT_LABEL3;
@@ -994,18 +1128,20 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     private javax.swing.JPanel TEXT_PANEL6;
     private javax.swing.JPanel TEXT_PANEL7;
     private javax.swing.JLabel TIME_LBL;
+    private javax.swing.JPanel TIME_PNL;
     private javax.swing.JLabel TIME_SECOND_LBL;
     private javax.swing.JTextField TYPE_TEXT;
+    private javax.swing.JPanel Type_Easy_PNL;
     private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JLabel USERNAME_LBL;
     private javax.swing.JLabel USER_IMG_LBL;
     private javax.swing.JLabel WPM_LBL;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
 }

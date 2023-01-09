@@ -25,14 +25,15 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
     }
 
-    public void USER(ArrayList<String> EASY ,ArrayList<String> MEDIUM ,ArrayList<String> HARD ) {
+    public void USER(ArrayList<String> EASY, ArrayList<String> MEDIUM, ArrayList<String> HARD) {
         try {
             EASY_ = EASY;
             MEDIUM_ = MEDIUM;
             HARD_ = HARD;
-            ALERT_LBL.setText("" + EASY_);
+//            ALERT_LBL.setText("" + EASY_);
         } catch (IndexOutOfBoundsException e) {
 
         }
@@ -53,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         LOGIN_BTN = new javax.swing.JButton();
         USERNAME_TEXT = new javax.swing.JTextField();
         ALERT_LBL = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
@@ -73,6 +75,7 @@ public class Login extends javax.swing.JFrame {
 
         LOGIN_BTN.setBackground(new java.awt.Color(0, 153, 153));
         LOGIN_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        LOGIN_BTN.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Videos\\idris\\@MATKUL\\dashpro\\APK-TEA-PINK\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\icon\\photo.png")); // NOI18N
         LOGIN_BTN.setText("Log In");
         LOGIN_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LOGIN_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,6 +114,10 @@ public class Login extends javax.swing.JFrame {
         ALERT_LBL.setText("* Maximum 15 Character");
         jPanel1.add(ALERT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Videos\\idris\\@MATKUL\\dashpro\\APK-TEA-PINK\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\icon\\photo.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 430));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,6 +155,24 @@ public class Login extends javax.swing.JFrame {
 
     private void USERNAME_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_USERNAME_TEXTKeyReleased
         // TODO add your handling code here:
+        int a = evt.getKeyCode();
+        if (a == 10) {
+            String USERNAME = USERNAME_TEXT.getText();
+
+            if (USERNAME.equals("") || USERNAME.equals("USERNAME")) {
+                JOptionPane.showMessageDialog(null, "Username still Blank, PLease input username!", "A message", JOptionPane.OK_OPTION);
+            } else {
+                int input = JOptionPane.showConfirmDialog(null, ("Your Username is " + USERNAME + " ? "), "Message", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+                if (input == 0) {
+                    // to TYPEE page
+                    Type_Easy Type = new Type_Easy();
+                    Type.USER(USERNAME, EASY_, MEDIUM_, HARD_);
+                    Type.setLocationRelativeTo(null);
+                    Type.setVisible(true);
+                    this.setVisible(false);
+                }
+            }
+        }
         try {
             String USERNAME = USERNAME_TEXT.getText();
             String USERNAME_15 = USERNAME.substring(0, 14);
@@ -221,6 +246,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton LOGIN_BTN;
     private javax.swing.JLabel TP_LBL;
     private javax.swing.JTextField USERNAME_TEXT;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

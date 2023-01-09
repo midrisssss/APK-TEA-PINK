@@ -25,14 +25,14 @@ public class LeaderBoard extends javax.swing.JFrame {
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
 //        LEADERBOARD_MEDIUM(MEDIUM_);
-        LEADERBOARD_EASY(EASY_);
+        LEADERBOARD_EASY();
     }
 //
 //    public void USER(ArrayList<String> EASY, ArrayList<String> MEDIUM, ArrayList<String> HARD) {
 //
 //    }
 
-    void LEADERBOARD_EASY(ArrayList<String> EASY) {
+    void LEADERBOARD_EASY() {
         EASY_PNL.setBackground(new java.awt.Color(255, 153, 0));
         MEDIUM_PNL.setBackground(new java.awt.Color(51, 51, 51));
         HARD_PNL.setBackground(new java.awt.Color(51, 51, 51));
@@ -42,54 +42,54 @@ public class LeaderBoard extends javax.swing.JFrame {
             if (i % 2 == 0) {
                 switch (i) {
                     case 0:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL0.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL0.setText("" + EASY_.get(i));
                         AVG_LBL0.setText("" + (int) A + "wpm");
                         break;
                     case 2:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL1.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL1.setText("" + EASY_.get(i));
                         AVG_LBL1.setText("" + (int) A + "wpm");
                         break;
                     case 4:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL2.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL2.setText("" + EASY_.get(i));
                         AVG_LBL2.setText("" + (int) A + "wpm");
                         break;
                     case 6:
-                        A = Double.parseDouble(EASY.get(1 + i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
 
-                        NAME_LBL3.setText("" + EASY.get(i));
+                        NAME_LBL3.setText("" + EASY_.get(i));
                         AVG_LBL3.setText("" + (int) A + "wpm");
                         break;
                     case 8:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL4.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL4.setText("" + EASY_.get(i));
                         AVG_LBL4.setText("" + (int) A + "wpm");
                         break;
                     case 10:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL5.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL5.setText("" + EASY_.get(i));
                         AVG_LBL5.setText("" + (int) A + "wpm");
                         break;
                     case 12:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL6.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL6.setText("" + EASY_.get(i));
                         AVG_LBL6.setText("" + (int) A + "wpm");
                         break;
                     case 14:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL7.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL7.setText("" + EASY_.get(i));
                         AVG_LBL7.setText("" + (int) A + "wpm");
                         break;
                     case 16:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL8.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL8.setText("" + EASY_.get(i));
                         AVG_LBL8.setText("" + (int) A + "wpm");
                         break;
                     case 18:
-                        A = Double.parseDouble(EASY.get(1 + i));
-                        NAME_LBL9.setText("" + EASY.get(i));
+                        A = Double.parseDouble(EASY_.get(1 + i));
+                        NAME_LBL9.setText("" + EASY_.get(i));
                         AVG_LBL9.setText("" + (int) A + "wpm");
                         break;
                     default:
@@ -99,7 +99,7 @@ public class LeaderBoard extends javax.swing.JFrame {
         }
     }
 
-    void LEADERBOARD_MEDIUM(ArrayList<String> MEDIUM) {
+    void LEADERBOARD_MEDIUM() {
         EASY_PNL.setBackground(new java.awt.Color(51, 51, 51));
         MEDIUM_PNL.setBackground(new java.awt.Color(255, 153, 0));
         HARD_PNL.setBackground(new java.awt.Color(51, 51, 51));
@@ -109,52 +109,52 @@ public class LeaderBoard extends javax.swing.JFrame {
             if (i % 2 == 0) {
                 switch (i) {
                     case 0:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
-                        NAME_LBL0.setText("" + MEDIUM.get(i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
+                        NAME_LBL0.setText("" + MEDIUM_.get(i));
                         AVG_LBL0.setText("" + (int) A + "wpm");
                         break;
                     case 2:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
-                        NAME_LBL1.setText("" + MEDIUM.get(i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
+                        NAME_LBL1.setText("" + MEDIUM_.get(i));
                         AVG_LBL1.setText("" + (int) A + "wpm");
                         break;
                     case 4:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
-                        NAME_LBL2.setText("" + MEDIUM.get(i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
+                        NAME_LBL2.setText("" + MEDIUM_.get(i));
                         AVG_LBL2.setText("" + (int) A + "wpm");
                         break;
                     case 6:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL3.setText("" + MEDIUM_.get(i));
                         AVG_LBL3.setText("" + (int) A + "wpm");
                         break;
                     case 8:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL4.setText("" + MEDIUM_.get(i));
                         AVG_LBL4.setText("" + (int) A + "wpm");
                         break;
                     case 10:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL5.setText("" + MEDIUM_.get(i));
                         AVG_LBL5.setText("" + (int) A + "wpm");
                         break;
                     case 12:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL6.setText("" + MEDIUM_.get(i));
                         AVG_LBL6.setText("" + (int) A + "wpm");
                         break;
                     case 14:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL7.setText("" + MEDIUM_.get(i));
                         AVG_LBL7.setText("" + (int) A + "wpm");
                         break;
                     case 16:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL8.setText("" + MEDIUM_.get(i));
                         AVG_LBL8.setText("" + (int) A + "wpm");
                         break;
                     case 18:
-                        A = Double.parseDouble(MEDIUM.get(1 + i));
+                        A = Double.parseDouble(MEDIUM_.get(1 + i));
                         NAME_LBL9.setText("" + MEDIUM_.get(i));
                         AVG_LBL9.setText("" + (int) A + "wpm");
                         break;
@@ -165,10 +165,70 @@ public class LeaderBoard extends javax.swing.JFrame {
         }
     }
 
-    void LEADERBOARD_HARD(ArrayList<String> HARD) {
+    void LEADERBOARD_HARD() {
         EASY_PNL.setBackground(new java.awt.Color(51, 51, 51));
         MEDIUM_PNL.setBackground(new java.awt.Color(51, 51, 51));
         HARD_PNL.setBackground(new java.awt.Color(255, 153, 0));
+
+        for (int i = 0; i < HARD_.size(); i++) {
+            double A;
+            if (i % 2 == 0) {
+                switch (i) {
+                    case 0:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL0.setText("" + HARD_.get(i));
+                        AVG_LBL0.setText("" + (int) A + "wpm");
+                        break;
+                    case 2:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL1.setText("" + HARD_.get(i));
+                        AVG_LBL1.setText("" + (int) A + "wpm");
+                        break;
+                    case 4:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL2.setText("" + HARD_.get(i));
+                        AVG_LBL2.setText("" + (int) A + "wpm");
+                        break;
+                    case 6:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL3.setText("" + HARD_.get(i));
+                        AVG_LBL3.setText("" + (int) A + "wpm");
+                        break;
+                    case 8:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL4.setText("" + HARD_.get(i));
+                        AVG_LBL4.setText("" + (int) A + "wpm");
+                        break;
+                    case 10:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL5.setText("" + HARD_.get(i));
+                        AVG_LBL5.setText("" + (int) A + "wpm");
+                        break;
+                    case 12:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL6.setText("" + HARD_.get(i));
+                        AVG_LBL6.setText("" + (int) A + "wpm");
+                        break;
+                    case 14:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL7.setText("" + HARD_.get(i));
+                        AVG_LBL7.setText("" + (int) A + "wpm");
+                        break;
+                    case 16:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL8.setText("" + HARD_.get(i));
+                        AVG_LBL8.setText("" + (int) A + "wpm");
+                        break;
+                    case 18:
+                        A = Double.parseDouble(HARD_.get(1 + i));
+                        NAME_LBL9.setText("" + HARD_.get(i));
+                        AVG_LBL9.setText("" + (int) A + "wpm");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 
     void RESET() {
@@ -795,19 +855,19 @@ public class LeaderBoard extends javax.swing.JFrame {
     private void EASY_LBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EASY_LBTNMouseClicked
         // TODO add your handling code here:
         RESET();
-        LEADERBOARD_EASY(EASY_);
+        LEADERBOARD_EASY();
     }//GEN-LAST:event_EASY_LBTNMouseClicked
 
     private void MEDIUM_LBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEDIUM_LBTNMouseClicked
         // TODO add your handling code here:
         RESET();
-        LEADERBOARD_MEDIUM(MEDIUM_);
+        LEADERBOARD_MEDIUM();
     }//GEN-LAST:event_MEDIUM_LBTNMouseClicked
 
     private void HARD_LBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HARD_LBTNMouseClicked
         // TODO add your handling code here:
         RESET();
-        LEADERBOARD_HARD(HARD_);
+        LEADERBOARD_HARD();
     }//GEN-LAST:event_HARD_LBTNMouseClicked
 
     /**

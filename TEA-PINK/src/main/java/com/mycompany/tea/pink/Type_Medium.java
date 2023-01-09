@@ -60,7 +60,7 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         }
         // IMAGE
         USER_IMG_LBL.setText("" + USERNAME);
-        WPM_LBL.setText(EASY_ + " ");
+        WPM_LBL.setText(EASY_ + " " + MEDIUM_ + HARD_);
     }
 
     public void WORDS() {
@@ -401,7 +401,7 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         TEXT_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL.setText("A");
         TEXT_LBL.setMaximumSize(new java.awt.Dimension(90, 43));
-        TEXT_PANEL.add(TEXT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 810, 300));
+        TEXT_PANEL.add(TEXT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 300));
 
         jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
 
@@ -536,10 +536,16 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         HARD_BTN.setText("HARD");
         HARD_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         HARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        HARD_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HARD_BTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(HARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 180, 60));
 
         MEDIUM_BTN.setBackground(new java.awt.Color(0, 0, 153));
         MEDIUM_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        MEDIUM_BTN.setSelected(true);
         MEDIUM_BTN.setText("MEDIUM");
         MEDIUM_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MEDIUM_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -623,7 +629,6 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
     private void EASY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EASY_BTNActionPerformed
         // TODO add your handling code here:
         String USERNAME = USERNAME_LBL.getText();
-        MEDIUM_BTN.setSelected(true);
         Type_Easy EASY = new Type_Easy();
         EASY.USER(USERNAME, EASY_, MEDIUM_, HARD_);
         EASY.setLocationRelativeTo(null);
@@ -633,8 +638,18 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
 
     private void MEDIUM_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEDIUM_BTNActionPerformed
         // TODO add your handling code here:
-        MEDIUM_BTN.setSelected(false);
+        MEDIUM_BTN.setSelected(true);
     }//GEN-LAST:event_MEDIUM_BTNActionPerformed
+
+    private void HARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HARD_BTNActionPerformed
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_LBL.getText();
+        Type_Hard HARD = new Type_Hard();
+        HARD.USER(USERNAME, EASY_, MEDIUM_, HARD_);
+        HARD.setLocationRelativeTo(null);
+        HARD.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HARD_BTNActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,21 +10,23 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author USER
+ * @author MUHAMMAD IDRIS
+ * @author TARA ALMANDA
+ * @author IVANKA AUDY IKHWAN
  */
 public class Type_Hard extends javax.swing.JFrame implements Runnable {
 
     // TIME
     Thread TIME;
     int Milisecond = 50;
-    int Second = 20;
+    int Second = 60;
     boolean state = false;
     // ARRAYLIST FOR EASY MEDIUM AND HARD DATA (USERNAME, AVERAGE)
     ArrayList<String> EASY_ = new ArrayList<>(); // USERNAME, AVERAGE
     ArrayList<String> MEDIUM_ = new ArrayList<>();
     ArrayList<String> HARD_ = new ArrayList<>();
     // TYPE CHECKER
-    int CORRECT_WORD = 0, UNCORRECT_WORD = 0; // SALAH/BENAR KATA
+    int CORRECT_WORD = 0; // BENAR KATA
     int CORRECT_LETTER, UNCORRECT_LETTER; // SALAH/BENAR HURUF
 //    String WORD = null; // GLOBAL VARIABEL WORD 
     int MUSIC_ON_OFF = 1; // STATUS MUSIC ON/OF
@@ -32,8 +34,7 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     double AVERAGE = 0;
     double ACCURACY = 0;
     // ARRAY LAGU
-    String[] LAGU_ARR = new String[5];
-    int LAGU_INDEX = 0;
+    String[] LAGU_ARR = new String[6];
     // LAGU ARR RANDOM
     String WORD_RANDOM;
     int RANDOM;
@@ -75,12 +76,13 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
             LAGU_ARR[i] = A_SPLIT[RANDOM_WORD];
             System.out.println(LAGU_ARR[i]);
             i++;
-        } while (i < 5);
+        } while (i <= 5);
         TEXT_LBL1.setText(LAGU_ARR[0]);
         TEXT_LBL2.setText(LAGU_ARR[1]);
         TEXT_LBL3.setText(LAGU_ARR[2]);
         TEXT_LBL4.setText(LAGU_ARR[3]);
         TEXT_LBL5.setText(LAGU_ARR[4]);
+        TEXT_LBL6.setText(LAGU_ARR[5]);
 
     }
 
@@ -92,17 +94,17 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
 
-        int USER_SAMA = MEDIUM_.indexOf(USERNAME);
+        int USER_SAMA = HARD_.indexOf(USERNAME);
         if (USER_SAMA == -1) {
             CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
         } else {
-            double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
-            CURRENTUSER_LBL.setText("USER : " + MEDIUM_.get(USER_SAMA));
+            double HIGHSCOREEE = Double.parseDouble(HARD_.get(USER_SAMA + 1));
+            CURRENTUSER_LBL.setText("USER : " + HARD_.get(USER_SAMA));
             HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
         }
         // IMAGE
         USER_IMG_LBL.setText("" + USERNAME);
-        WPM_LBL.setText(EASY_ + " ");
+        WPM_LBL.setText(HARD_ + " ");
     }
 
     void START(String TYPE) {
@@ -121,14 +123,14 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         state = false;
         USER_DATA(Second, CORRECT_WORD, CORRECT_LETTER, UNCORRECT_LETTER);
 
-        int USER_SAMA = MEDIUM_.indexOf(USERNAME_LBL.getText());
-        double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
+        int USER_SAMA = HARD_.indexOf(USERNAME_LBL.getText());
+        double HIGHSCOREEE = Double.parseDouble(HARD_.get(USER_SAMA + 1));
         HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
     }
 
     void USER_DATA(double SECOND, double CORRECT_WORD, int BENAR, int SALAH) {
         //AVG
-        AVERAGE = ((CORRECT_WORD / 100) * 60);
+        AVERAGE = CORRECT_WORD;
         AVERAGE_LBL.setText("AVG                                : " + (int) AVERAGE + " wpm");
         AVG_LBL.setText((int) AVERAGE + "");
 
@@ -167,7 +169,7 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                 HARD_.set(HIGHSCORE_RANKING, "0");
             }
         }
-        MEDIUM_ = HIGHSCORE_Arr;
+        HARD_ = HIGHSCORE_Arr;
     }
 
     void TYPE_CHECKER(String TYPE) {
@@ -178,11 +180,6 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                 if (TYPE.equals(WORD_RANDOM)) {
                     CORRECT_WORD++;
                     TYPE_TEXT.setText("");
-                    TEXT_LBL1.setForeground(Color.WHITE);
-                    TEXT_LBL2.setForeground(Color.WHITE);
-                    TEXT_LBL3.setForeground(Color.WHITE);
-                    TEXT_LBL4.setForeground(Color.WHITE);
-                    TEXT_LBL5.setForeground(Color.WHITE);
                     LAGU_ARR_RANDOM();
                 }
             } else {
@@ -195,10 +192,17 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     }
 
     void LAGU_ARR_RANDOM() {
-        RANDOM = (int) (Math.random() * 4);
+        TEXT_LBL1.setForeground(Color.WHITE);
+        TEXT_LBL2.setForeground(Color.WHITE);
+        TEXT_LBL3.setForeground(Color.WHITE);
+        TEXT_LBL4.setForeground(Color.WHITE);
+        TEXT_LBL5.setForeground(Color.WHITE);
+
+        RANDOM = (int) (Math.random() * 5);
         WORD_RANDOM = LAGU_ARR[RANDOM];
         System.out.println(RANDOM);
         System.out.println(WORD_RANDOM);
+
         switch (RANDOM) {
             case 0:
                 TEXT_LBL1.setForeground(Color.black);
@@ -214,6 +218,9 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                 break;
             case 4:
                 TEXT_LBL5.setForeground(Color.black);
+                break;
+            case 5:
+                TEXT_LBL6.setForeground(Color.black);
                 break;
             default:
                 break;
@@ -239,6 +246,9 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                 break;
             case 4:
                 TEXT_LBL5.setForeground(Color.black);
+                break;
+            case 5:
+                TEXT_LBL6.setForeground(Color.black);
                 break;
             default:
                 break;
@@ -266,6 +276,9 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
             case 4:
                 TEXT_LBL5.setForeground(Color.red);
                 break;
+            case 5:
+                TEXT_LBL6.setForeground(Color.black);
+                break;
             default:
                 break;
         }
@@ -276,12 +289,11 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         Milisecond = 50;
         Second = 60;
         CORRECT_WORD = 0;
-        UNCORRECT_WORD = 0;
         AVERAGE = 0;
         ACCURACY = 0;
         CORRECT_LETTER = 0;
         UNCORRECT_LETTER = 0;
-        TIME_LBL.setText("100");
+        TIME_LBL.setText("60");
         TYPE_TEXT.setEditable(true);
         TYPE_TEXT.setBackground(new java.awt.Color(255, 153, 204));
         TEXT_LBL1.setForeground(Color.WHITE);
@@ -314,13 +326,13 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         jLabel6 = new javax.swing.JLabel();
         WPM_LBL = new javax.swing.JLabel();
         KEYSTROKES_LBL = new javax.swing.JLabel();
-        UNCORRECT_LBL = new javax.swing.JLabel();
         TEXT_PANEL = new javax.swing.JPanel();
         TEXT_LBL1 = new javax.swing.JLabel();
         TEXT_LBL2 = new javax.swing.JLabel();
         TEXT_LBL3 = new javax.swing.JLabel();
         TEXT_LBL4 = new javax.swing.JLabel();
         TEXT_LBL5 = new javax.swing.JLabel();
+        TEXT_LBL6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         LEADERBOARD_BTN = new javax.swing.JButton();
         USERNAME_BTN = new javax.swing.JButton();
@@ -414,57 +426,47 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         KEYSTROKES_LBL.setForeground(java.awt.Color.black);
         KEYSTROKES_LBL.setText("KeyStrokes                : 0 ( 0 | 0 )");
 
-        UNCORRECT_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        UNCORRECT_LBL.setForeground(java.awt.Color.black);
-        UNCORRECT_LBL.setText("Uncorrect                   : 0 words");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(42, Short.MAX_VALUE)
-                        .addComponent(AVG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(91, 91, 91))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(WPM_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(AVG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(78, 78, 78)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ACCURACY_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AVERAGE_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UNCORRECT_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                    .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(WPM_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(AVG_LBL)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AVG_LBL)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(AVERAGE_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ACCURACY_LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(KEYSTROKES_LBL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(UNCORRECT_LBL)
-                            .addComponent(WPM_LBL))))
+                        .addComponent(KEYSTROKES_LBL)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(WPM_LBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -501,34 +503,44 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         TEXT_LBL5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL5.setText("jLabel1");
 
+        TEXT_LBL6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL6.setForeground(java.awt.Color.white);
+        TEXT_LBL6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TEXT_LBL6.setText("jLabel1");
+
         javax.swing.GroupLayout TEXT_PANELLayout = new javax.swing.GroupLayout(TEXT_PANEL);
         TEXT_PANEL.setLayout(TEXT_PANELLayout);
         TEXT_PANELLayout.setHorizontalGroup(
             TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANELLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(TEXT_LBL1)
-                .addGap(9, 9, 9)
-                .addComponent(TEXT_LBL2)
-                .addGap(9, 9, 9)
-                .addComponent(TEXT_LBL3)
-                .addGap(9, 9, 9)
-                .addComponent(TEXT_LBL4)
-                .addGap(9, 9, 9)
-                .addComponent(TEXT_LBL5)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGap(83, 83, 83)
+                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(TEXT_LBL1)
+                    .addComponent(TEXT_LBL2))
+                .addGap(104, 104, 104)
+                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(TEXT_LBL3)
+                    .addComponent(TEXT_LBL4))
+                .addGap(58, 58, 58)
+                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(TEXT_LBL5)
+                    .addComponent(TEXT_LBL6))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         TEXT_PANELLayout.setVerticalGroup(
             TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANELLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(55, 55, 55)
+                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(TEXT_LBL1)
-                    .addComponent(TEXT_LBL2)
                     .addComponent(TEXT_LBL3)
-                    .addComponent(TEXT_LBL4)
                     .addComponent(TEXT_LBL5))
-                .addContainerGap(727, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(TEXT_LBL2)
+                    .addComponent(TEXT_LBL4)
+                    .addComponent(TEXT_LBL6))
+                .addContainerGap(682, Short.MAX_VALUE))
         );
 
         jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
@@ -661,9 +673,15 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
 
         HARD_BTN.setBackground(new java.awt.Color(0, 0, 120));
         HARD_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        HARD_BTN.setSelected(true);
         HARD_BTN.setText("HARD");
         HARD_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         HARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        HARD_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HARD_BTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(HARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 180, 60));
 
         MEDIUM_BTN.setBackground(new java.awt.Color(0, 0, 153));
@@ -753,16 +771,15 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     private void EASY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EASY_BTNActionPerformed
         // TODO add your handling code here:
         String USERNAME = USERNAME_LBL.getText();
-        Type_Medium HARD = new Type_Medium();
+        Type_Easy EASY = new Type_Easy();
         EASY.USER(USERNAME, EASY_, MEDIUM_, HARD_);
-        MEDIUM.setLocationRelativeTo(null);
-        MEDIUM.setVisible(true);
+        EASY.setLocationRelativeTo(null);
+        EASY.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_EASY_BTNActionPerformed
 
     private void MEDIUM_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEDIUM_BTNActionPerformed
         // TODO add your handling code here:
-        HARD_BTN.setSelected(true);
 
         String USERNAME = USERNAME_LBL.getText();
         Type_Medium MEDIUM = new Type_Medium();
@@ -771,6 +788,11 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         MEDIUM.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_MEDIUM_BTNActionPerformed
+
+    private void HARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HARD_BTNActionPerformed
+        // TODO add your handling code here:
+        HARD_BTN.setSelected(true);
+    }//GEN-LAST:event_HARD_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -834,10 +856,10 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel TEXT_LBL3;
     private javax.swing.JLabel TEXT_LBL4;
     private javax.swing.JLabel TEXT_LBL5;
+    private javax.swing.JLabel TEXT_LBL6;
     private javax.swing.JPanel TEXT_PANEL;
     private javax.swing.JLabel TIME_LBL;
     private javax.swing.JTextField TYPE_TEXT;
-    private javax.swing.JLabel UNCORRECT_LBL;
     private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JLabel USERNAME_LBL;
     private javax.swing.JLabel USER_IMG_LBL;
