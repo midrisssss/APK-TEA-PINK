@@ -1,4 +1,5 @@
 package com.mycompany.tea.pink;
+import java.awt.Color;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -27,7 +28,6 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         PLAY_LBL = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1.add(PLAY_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 336, 900, -1));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setBackground(Color.PINK);
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 102));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 80)); // NOI18N

@@ -5,6 +5,7 @@
 package com.mycompany.tea.pink;
 
 import java.util.ArrayList;
+import java.awt.Color;
 
 /**
  *
@@ -268,54 +269,70 @@ public class LeaderBoard extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         HEADER_MUSIC_PNL = new javax.swing.JPanel();
         USERNAME_MUSIC_LBL = new javax.swing.JLabel();
+        USERNAME_MUSIC_LBL.setForeground(Color.WHITE);
         AVG_MUSIC_LBL = new javax.swing.JLabel();
+        AVG_MUSIC_LBL.setForeground(Color.WHITE);
         NO_MUSIC_LBL = new javax.swing.JLabel();
+        NO_MUSIC_LBL.setForeground(Color.WHITE);
         NO_1_PNL = new javax.swing.JPanel();
         NAME_LBL0 = new javax.swing.JLabel();
         AVG_LBL0 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel9.setForeground(Color.WHITE);
         NO_1_PNL1 = new javax.swing.JPanel();
         NAME_LBL1 = new javax.swing.JLabel();
         AVG_LBL1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel12.setForeground(Color.WHITE);
         NO_1_PNL2 = new javax.swing.JPanel();
         NAME_LBL2 = new javax.swing.JLabel();
         AVG_LBL2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel15.setForeground(Color.WHITE);
         NO_1_PNL3 = new javax.swing.JPanel();
         NAME_LBL3 = new javax.swing.JLabel();
         AVG_LBL3 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel18.setForeground(Color.WHITE);
         NO_1_PNL4 = new javax.swing.JPanel();
         NAME_LBL4 = new javax.swing.JLabel();
         AVG_LBL4 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel21.setForeground(Color.WHITE);
         NO_1_PNL5 = new javax.swing.JPanel();
         NAME_LBL5 = new javax.swing.JLabel();
         AVG_LBL5 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel24.setForeground(Color.WHITE);
         NO_1_PNL6 = new javax.swing.JPanel();
         NAME_LBL6 = new javax.swing.JLabel();
         AVG_LBL6 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel27.setForeground(Color.WHITE);
         NO_1_PNL7 = new javax.swing.JPanel();
         NAME_LBL7 = new javax.swing.JLabel();
         AVG_LBL7 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jLabel30.setForeground(Color.WHITE);
         NO_1_PNL8 = new javax.swing.JPanel();
         NAME_LBL8 = new javax.swing.JLabel();
         AVG_LBL8 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jLabel33.setForeground(Color.WHITE);
         NO_1_PNL9 = new javax.swing.JPanel();
         NAME_LBL9 = new javax.swing.JLabel();
         AVG_LBL9 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        jLabel36.setForeground(Color.WHITE);
         EASY_PNL = new javax.swing.JPanel();
         EASY_LBTN = new javax.swing.JLabel();
+        EASY_LBTN.setForeground(Color.WHITE);
         MEDIUM_PNL = new javax.swing.JPanel();
         MEDIUM_LBTN = new javax.swing.JLabel();
+        MEDIUM_LBTN.setForeground(Color.WHITE);
         HARD_PNL = new javax.swing.JPanel();
         HARD_LBTN = new javax.swing.JLabel();
+        HARD_LBTN.setForeground(Color.WHITE);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LEADERBOARD-TEA-PINK");
