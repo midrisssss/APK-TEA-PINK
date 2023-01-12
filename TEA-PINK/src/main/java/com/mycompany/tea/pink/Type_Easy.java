@@ -501,7 +501,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
 
         TYPE_TEXT.setBackground(new java.awt.Color(255, 153, 204));
         TYPE_TEXT.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        TYPE_TEXT.setForeground(java.awt.Color.black);
         TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         TYPE_TEXT.setSelectionEnd(2);
         TYPE_TEXT.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -517,11 +516,9 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         Type_Easy_PNL.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 810, 60));
 
         TIME_PNL.setBackground(java.awt.Color.yellow);
-        TIME_PNL.setForeground(java.awt.Color.black);
 
         TIME_LBL.setBackground(new java.awt.Color(51, 237, 142));
         TIME_LBL.setFont(new java.awt.Font("Poppins ExtraBold", 1, 70)); // NOI18N
-        TIME_LBL.setForeground(java.awt.Color.black);
         TIME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TIME_LBL.setText("0");
 
@@ -542,36 +539,28 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         SCORE_PNL.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         AVG_LBL.setFont(new java.awt.Font("Poppins", 1, 60)); // NOI18N
-        AVG_LBL.setForeground(java.awt.Color.black);
         AVG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         AVG_LBL.setText("0");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.black);
         jLabel3.setText("wpm");
 
         AVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        AVERAGE_LBL.setForeground(java.awt.Color.black);
         AVERAGE_LBL.setText("Average                       : 0 wpm");
 
         ACCURACY_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        ACCURACY_LBL.setForeground(java.awt.Color.black);
         ACCURACY_LBL.setText("Accuracy                    : 0%");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.black);
 
         WPM_LBL.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
-        WPM_LBL.setForeground(java.awt.Color.black);
         WPM_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WPM_LBL.setText("Words per Minute");
 
         KEYSTROKES_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        KEYSTROKES_LBL.setForeground(java.awt.Color.black);
         KEYSTROKES_LBL.setText("KeyStrokes                : 0 ( 0 | 0 )");
 
         TIME_SECOND_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        TIME_SECOND_LBL.setForeground(java.awt.Color.black);
         TIME_SECOND_LBL.setText("Time                               : 0 Second");
 
         javax.swing.GroupLayout SCORE_PNLLayout = new javax.swing.GroupLayout(SCORE_PNL);
@@ -886,20 +875,17 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         Type_Easy_PNL.add(ASIDE_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 260, 710));
 
         CURRENTUSER_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        CURRENTUSER_LBL.setForeground(java.awt.Color.black);
         CURRENTUSER_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         CURRENTUSER_LBL.setText("USER : Muhammad Idris");
         Type_Easy_PNL.add(CURRENTUSER_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
 
         HIGHAVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        HIGHAVERAGE_LBL.setForeground(java.awt.Color.black);
         HIGHAVERAGE_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         HIGHAVERAGE_LBL.setText("HIGH AVERAGE : 0wpm");
         Type_Easy_PNL.add(HIGHAVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 300, 30));
 
         REPLAY_BTN.setBackground(new java.awt.Color(51, 255, 153));
         REPLAY_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        REPLAY_BTN.setForeground(java.awt.Color.black);
         REPLAY_BTN.setText("REPLAY");
         REPLAY_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         REPLAY_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

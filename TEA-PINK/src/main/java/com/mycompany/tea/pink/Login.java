@@ -4,9 +4,9 @@
  */
 package com.mycompany.tea.pink;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
 
 /**
  *

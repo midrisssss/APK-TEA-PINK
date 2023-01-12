@@ -1,5 +1,7 @@
 package com.mycompany.tea.pink;
-import java.awt.Color;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,11 +14,29 @@ import java.awt.Color;
  * @author IVANKA AUDY IKHWAN
  */
 public class Home extends javax.swing.JFrame {
+
+    ArrayList<String> EASY_ = new ArrayList<>();
+    ArrayList<String> MEDIUM_ = new ArrayList<>();
+    ArrayList<String> HARD_ = new ArrayList<>();
+
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        setExtendedState(Home.MAXIMIZED_BOTH);
+        setVisible(true);
+    }
+
+    public void USER(ArrayList<String> EASY, ArrayList<String> MEDIUM, ArrayList<String> HARD) {
+        try {
+            EASY_ = EASY;
+            MEDIUM_ = MEDIUM;
+            HARD_ = HARD;
+//            ALERT_LBL.setText("" + EASY_);
+        } catch (IndexOutOfBoundsException e) {
+
+        }
     }
 
     /**
@@ -28,87 +48,67 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PLAY_LBL = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        START_BTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
         setBackground(java.awt.Color.orange);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(241, 233, 222));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1500, 1000));
 
-        PLAY_LBL.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
-        PLAY_LBL.setForeground(new java.awt.Color(0, 153, 153));
-        PLAY_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PLAY_LBL.setText("PLAY");
-        PLAY_LBL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PLAY_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PLAY_LBLMouseClicked(evt);
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\OneDrive\\Documents\\NetBeansProjects\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\iconImage\\logo.png")); // NOI18N
+
+        START_BTN.setBackground(new java.awt.Color(142, 169, 108));
+        START_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        START_BTN.setForeground(new java.awt.Color(255, 255, 255));
+        START_BTN.setText("Start Type");
+        START_BTN.setBorder(null);
+        START_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                START_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(PLAY_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 336, 900, -1));
 
-        jPanel2.setBackground(Color.PINK);
-        jPanel2.setPreferredSize(new java.awt.Dimension(900, 102));
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 80)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 153, 0));
-        jLabel1.setText("TEA");
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 80)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("-");
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 80)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 153, 204));
-        jLabel3.setText("PINK");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(260, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(243, 243, 243))
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(571, 571, 571)
+                        .addComponent(START_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(494, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(0, 0, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(START_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(368, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 176, -1, -1));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(775, 0, 39, 37));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 630));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PLAY_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PLAY_LBLMouseClicked
+    private void START_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_START_BTNActionPerformed
         // TODO add your handling code here:
-        //pindah page
         Login LOGIN = new Login();
         LOGIN.setLocationRelativeTo(null);
         LOGIN.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_PLAY_LBLMouseClicked
+    }//GEN-LAST:event_START_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,12 +146,8 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PLAY_LBL;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton START_BTN;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
