@@ -267,20 +267,18 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     }
 
     void END(String TYPE) {
-        if (TYPE.equals(LAGU[TOTAL_WORDS - 1]) || Second > (TOTAL_WORDS * 60)) {
-            state = false;
-            USER_DATA(Second, TOTAL_WORDS, CORRECT, UNCORRECT);
-            // BTN REPLAY VISIBLE
-            REPLAY_BTN.setVisible(true);
-            TYPE_TEXT.setEditable(false);
-            TEXT_LABEL7.setForeground(Color.WHITE);
-            if (LAGU_ROW7.equals("")) {
-                TEXT_LABEL6.setForeground(Color.WHITE);
-            }
-            int USER_SAMA = EASY_.indexOf(USERNAME_LBL.getText());
-            double HIGHSCOREEE = Double.parseDouble(EASY_.get(USER_SAMA + 1));
-            HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+        state = false;
+        USER_DATA(Second, TOTAL_WORDS, CORRECT, UNCORRECT);
+        // BTN REPLAY VISIBLE
+        REPLAY_BTN.setVisible(true);
+        TYPE_TEXT.setEditable(false);
+        TEXT_LABEL7.setForeground(Color.WHITE);
+        if (LAGU_ROW7.equals("")) {
+            TEXT_LABEL6.setForeground(Color.WHITE);
         }
+        int USER_SAMA = EASY_.indexOf(USERNAME_LBL.getText());
+        double HIGHSCOREEE = Double.parseDouble(EASY_.get(USER_SAMA + 1));
+        HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
     }
 
     void TYPE_CHECKER(String TYPE) {
@@ -341,7 +339,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         ACCOUNT_LBL = new javax.swing.JLabel();
         EXIT_LBL = new javax.swing.JLabel();
         MEDIUM_LBL = new javax.swing.JLabel();
-        LEADEROARD_LBL = new javax.swing.JLabel();
         EASY_LBL = new javax.swing.JLabel();
         KEYSTROKES_LBL = new javax.swing.JLabel();
         TIME_SECOND_LBL = new javax.swing.JLabel();
@@ -355,7 +352,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1350, 900));
 
         Type_Easy_PNL.setBackground(new java.awt.Color(204, 255, 204));
         Type_Easy_PNL.setForeground(java.awt.Color.white);
@@ -367,7 +363,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         ACCURACY_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         ACCURACY_LBL.setForeground(new java.awt.Color(93, 120, 58));
         ACCURACY_LBL.setText("Accuracy       : 0%");
-        Type_Easy_PNL.add(ACCURACY_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, 240, -1));
+        Type_Easy_PNL.add(ACCURACY_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 640, 240, -1));
 
         TYPE_TEXT.setBackground(new java.awt.Color(241, 234, 223));
         TYPE_TEXT.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -636,14 +632,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         });
         Type_Easy_PNL.add(MEDIUM_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 230, -1, -1));
 
-        LEADEROARD_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/image 17.png"))); // NOI18N
-        LEADEROARD_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LEADEROARD_LBLMouseClicked(evt);
-            }
-        });
-        Type_Easy_PNL.add(LEADEROARD_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 450, -1, -1));
-
         EASY_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Easy Button.png"))); // NOI18N
         EASY_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -655,12 +643,12 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         KEYSTROKES_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         KEYSTROKES_LBL.setForeground(new java.awt.Color(93, 120, 58));
         KEYSTROKES_LBL.setText("KeyStrokes   : 0 ( 0 | 0 )");
-        Type_Easy_PNL.add(KEYSTROKES_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 640, 270, -1));
+        Type_Easy_PNL.add(KEYSTROKES_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 640, 270, -1));
 
         TIME_SECOND_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         TIME_SECOND_LBL.setForeground(new java.awt.Color(93, 120, 58));
         TIME_SECOND_LBL.setText("Time                  : 0 Second");
-        Type_Easy_PNL.add(TIME_SECOND_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 690, 240, -1));
+        Type_Easy_PNL.add(TIME_SECOND_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 690, 240, -1));
 
         AVG_LBL.setFont(new java.awt.Font("Poppins", 1, 60)); // NOI18N
         AVG_LBL.setForeground(new java.awt.Color(150, 182, 109));
@@ -671,7 +659,7 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         AVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         AVERAGE_LBL.setForeground(new java.awt.Color(93, 120, 58));
         AVERAGE_LBL.setText("Average          : 0 wpm");
-        Type_Easy_PNL.add(AVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 690, 270, -1));
+        Type_Easy_PNL.add(AVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 690, 270, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Rectangle 9.png"))); // NOI18N
         Type_Easy_PNL.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, -1, -1));
@@ -685,7 +673,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         Type_Easy_PNL.add(USERNAME_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Easy.png"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(1350, 900));
         Type_Easy_PNL.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 900));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -711,7 +698,9 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         String TYPE = TYPE_TEXT.getText();
         START(TYPE);
         TYPE_CHECKER(TYPE);
-        END(TYPE);
+        if (TYPE.equals(LAGU[TOTAL_WORDS - 1])) {
+            END(TYPE);
+        }
     }//GEN-LAST:event_TYPE_TEXTKeyReleased
 
     private void TYPE_TEXTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TYPE_TEXTFocusGained
@@ -733,13 +722,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
         LOGIN.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ACCOUNT_LBLMouseClicked
-
-    private void LEADEROARD_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LEADEROARD_LBLMouseClicked
-        // TODO add your handling code here:
-        LeaderBoard LEADERBOARD = new LeaderBoard(EASY_, MEDIUM_, HARD_);
-        LEADERBOARD.setLocationRelativeTo(null);
-        LEADERBOARD.setVisible(true);
-    }//GEN-LAST:event_LEADEROARD_LBLMouseClicked
 
     private void MEDIUM_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEDIUM_LBLMouseClicked
         // TODO add your handling code here:
@@ -818,7 +800,6 @@ public class Type_Easy extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel HARD_LBL;
     private javax.swing.JLabel HIGHAVERAGE_LBL;
     private javax.swing.JLabel KEYSTROKES_LBL;
-    private javax.swing.JLabel LEADEROARD_LBL;
     private javax.swing.JLabel MEDIUM_LBL;
     private javax.swing.JButton REPLAY_BTN;
     private javax.swing.JLabel TEXT_LABEL1;

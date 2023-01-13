@@ -57,14 +57,12 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
             } else {
                 double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
                 CURRENTUSER_LBL.setText("USER : " + MEDIUM_.get(USER_SAMA));
-                HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+                USERNAME_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
             }
         } catch (Exception e) {
 
         }
         // IMAGE
-        USER_IMG_LBL.setText("" + USERNAME);
-        WPM_LBL.setText(EASY_ + " " + MEDIUM_ + HARD_);
     }
 
     public void WORDS() {
@@ -100,12 +98,11 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         //AVG
         AVG_LBL.setText(CORRECT_WORD + "");
         AVERAGE = CORRECT_WORD;
-        AVERAGE_LBL.setText("AVG                                : " + AVERAGE + " wpm");
         // ACCURACY
         ACCURACY = (((double) CORRECT_LETTER - (double) UNCORRECT_LETTER) / ((double) CORRECT_LETTER / 100.0));
         ACCURACY_LBL.setText("ACCURACY                : " + (int) ACCURACY + "%");
         // KEYSTOKES
-        KEYSTROKES_LBL.setText("KeyStrokes                : " + (CORRECT_LETTER + UNCORRECT_LETTER) + " ( " + CORRECT_LETTER + " | " + UNCORRECT_LETTER + " )");
+        ACCURACY_LBL.setText("KeyStrokes                : " + (CORRECT_LETTER + UNCORRECT_LETTER) + " ( " + CORRECT_LETTER + " | " + UNCORRECT_LETTER + " )");
         // ADD USERNAME AND SCORE TO MEDIUM_
         MEDIUM_.add(USERNAME_LBL.getText());
         MEDIUM_.add(Double.toString(AVERAGE));
@@ -158,7 +155,7 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
 
         int USER_SAMA = MEDIUM_.indexOf(USERNAME_LBL.getText());
         double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
-        HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+        USERNAME_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
     }
 
     void TYPE_CHECKER(String TYPE) {
@@ -241,45 +238,174 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TYPE_TEXT = new javax.swing.JTextField();
-        TIME_PNL = new javax.swing.JPanel();
-        TIME_LBL = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        AVG_LBL = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        AVERAGE_LBL = new javax.swing.JLabel();
-        ACCURACY_LBL = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        WPM_LBL = new javax.swing.JLabel();
+        AVG_LBL = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         KEYSTROKES_LBL = new javax.swing.JLabel();
+        ACCURACY_LBL = new javax.swing.JLabel();
         TEXT_PANEL = new javax.swing.JPanel();
         TEXT_LBL = new javax.swing.JLabel();
-        ASIDE_PNL = new javax.swing.JPanel();
-        LEADERBOARD_BTN = new javax.swing.JButton();
-        USERNAME_BTN = new javax.swing.JButton();
-        USERNAME_LBL = new javax.swing.JLabel();
-        USER_IMG_LBL = new javax.swing.JLabel();
-        MUSIC_TGGLE = new javax.swing.JToggleButton();
-        EXIT_TYPEE = new javax.swing.JButton();
         CURRENTUSER_LBL = new javax.swing.JLabel();
-        HIGHAVERAGE_LBL = new javax.swing.JLabel();
+        EXIT_LBL = new javax.swing.JLabel();
+        ACCOUNT_LBL = new javax.swing.JLabel();
+        HARD_LBL = new javax.swing.JLabel();
+        HIGHAVERAGE_LBL1 = new javax.swing.JLabel();
+        MEDIUM_LBL = new javax.swing.JLabel();
+        EASY_LBL = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        TYPE_TEXT = new javax.swing.JTextField();
         REPLAY_BTN = new javax.swing.JButton();
-        EASY_BTN = new javax.swing.JToggleButton();
-        HARD_BTN = new javax.swing.JToggleButton();
-        MEDIUM_BTN = new javax.swing.JToggleButton();
+        TIME_LBL = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        USERNAME_LBL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setForeground(java.awt.Color.white);
-        jPanel1.setMinimumSize(new java.awt.Dimension(2000, 1000));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1350, 900));
         jPanel1.setPreferredSize(new java.awt.Dimension(2000, 1100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TYPE_TEXT.setBackground(new java.awt.Color(255, 153, 204));
+        jPanel3.setBackground(new java.awt.Color(241, 234, 223));
+
+        jLabel6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel6.setForeground(java.awt.Color.black);
+
+        AVG_LBL.setFont(new java.awt.Font("Poppins", 1, 60)); // NOI18N
+        AVG_LBL.setForeground(new java.awt.Color(150, 182, 109));
+        AVG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AVG_LBL.setText("0");
+
+        jLabel4.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(150, 182, 109));
+        jLabel4.setText("wpm");
+
+        KEYSTROKES_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        KEYSTROKES_LBL.setForeground(new java.awt.Color(93, 120, 58));
+        KEYSTROKES_LBL.setText("KeyStrokes   : 0 ( 0 | 0 )");
+
+        ACCURACY_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        ACCURACY_LBL.setForeground(new java.awt.Color(93, 120, 58));
+        ACCURACY_LBL.setText("Accuracy       : 0%");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(jLabel6)
+                .addContainerGap(734, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AVG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(jLabel4)
+                    .addGap(107, 107, 107)
+                    .addComponent(ACCURACY_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel6)
+                .addContainerGap(108, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(AVG_LBL)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ACCURACY_LBL)
+                                .addComponent(KEYSTROKES_LBL))))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, 910, 180));
+
+        TEXT_PANEL.setBackground(new java.awt.Color(241, 234, 223));
+        TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
+        TEXT_PANEL.setMinimumSize(new java.awt.Dimension(900, 900));
+        TEXT_PANEL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TEXT_LBL.setBackground(new java.awt.Color(241, 234, 223));
+        TEXT_LBL.setFont(new java.awt.Font("Poppins", 1, 80)); // NOI18N
+        TEXT_LBL.setForeground(java.awt.Color.black);
+        TEXT_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TEXT_LBL.setText("A");
+        TEXT_LBL.setMaximumSize(new java.awt.Dimension(90, 43));
+        TEXT_PANEL.add(TEXT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 730, 300));
+
+        jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 810, 300));
+
+        CURRENTUSER_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        CURRENTUSER_LBL.setForeground(java.awt.Color.black);
+        CURRENTUSER_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        CURRENTUSER_LBL.setText("USER : Muhammad Idris");
+        jPanel1.add(CURRENTUSER_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 30));
+
+        EXIT_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/image 4-1.png"))); // NOI18N
+        EXIT_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EXIT_LBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(EXIT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 650, -1, -1));
+
+        ACCOUNT_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/image 4.png"))); // NOI18N
+        ACCOUNT_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ACCOUNT_LBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(ACCOUNT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 30, -1, -1));
+
+        HARD_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Hard Button.png"))); // NOI18N
+        HARD_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HARD_LBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(HARD_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 120, -1, -1));
+
+        HIGHAVERAGE_LBL1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        HIGHAVERAGE_LBL1.setForeground(java.awt.Color.black);
+        HIGHAVERAGE_LBL1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        HIGHAVERAGE_LBL1.setText("HIGH AVERAGE : 0wpm");
+        jPanel1.add(HIGHAVERAGE_LBL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, 300, 30));
+
+        MEDIUM_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Medium Button.png"))); // NOI18N
+        MEDIUM_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MEDIUM_LBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(MEDIUM_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 230, -1, -1));
+
+        EASY_LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Easy Button.png"))); // NOI18N
+        EASY_LBL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EASY_LBLMouseClicked(evt);
+            }
+        });
+        jPanel1.add(EASY_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 340, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Rectangle 9.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, -1, -1));
+
+        TYPE_TEXT.setBackground(new java.awt.Color(241, 234, 223));
         TYPE_TEXT.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        TYPE_TEXT.setForeground(java.awt.Color.black);
-        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(150, 182, 109), new java.awt.Color(150, 182, 109)));
         TYPE_TEXT.setSelectionEnd(2);
         TYPE_TEXT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -291,229 +417,11 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
                 TYPE_TEXTKeyReleased(evt);
             }
         });
-        jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 810, 60));
-
-        TIME_PNL.setBackground(java.awt.Color.yellow);
-        TIME_PNL.setForeground(java.awt.Color.black);
-
-        TIME_LBL.setBackground(new java.awt.Color(51, 237, 142));
-        TIME_LBL.setFont(new java.awt.Font("Poppins ExtraBold", 1, 70)); // NOI18N
-        TIME_LBL.setForeground(java.awt.Color.black);
-        TIME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TIME_LBL.setText("60");
-
-        javax.swing.GroupLayout TIME_PNLLayout = new javax.swing.GroupLayout(TIME_PNL);
-        TIME_PNL.setLayout(TIME_PNLLayout);
-        TIME_PNLLayout.setHorizontalGroup(
-            TIME_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TIME_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-        );
-        TIME_PNLLayout.setVerticalGroup(
-            TIME_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TIME_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(TIME_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 180, 180));
-
-        jPanel3.setBackground(new java.awt.Color(255, 153, 204));
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        AVG_LBL.setFont(new java.awt.Font("Poppins", 1, 60)); // NOI18N
-        AVG_LBL.setForeground(java.awt.Color.black);
-        AVG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        AVG_LBL.setText("0");
-
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.black);
-        jLabel3.setText("wpm");
-
-        AVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        AVERAGE_LBL.setForeground(java.awt.Color.black);
-        AVERAGE_LBL.setText("Average                       : 0 wpm");
-
-        ACCURACY_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        ACCURACY_LBL.setForeground(java.awt.Color.black);
-        ACCURACY_LBL.setText("Accuracy                    : 0%");
-
-        jLabel6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.black);
-
-        WPM_LBL.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
-        WPM_LBL.setForeground(java.awt.Color.black);
-        WPM_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        WPM_LBL.setText("Words per Minute");
-
-        KEYSTROKES_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        KEYSTROKES_LBL.setForeground(java.awt.Color.black);
-        KEYSTROKES_LBL.setText("KeyStrokes                : 0 ( 0 | 0 )");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(AVG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(88, 88, 88)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ACCURACY_LBL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AVERAGE_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KEYSTROKES_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(WPM_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(AVG_LBL)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(AVERAGE_LBL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ACCURACY_LBL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(KEYSTROKES_LBL)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WPM_LBL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 810, 180));
-
-        TEXT_PANEL.setBackground(new java.awt.Color(255, 153, 204));
-        TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
-        TEXT_PANEL.setMinimumSize(new java.awt.Dimension(900, 900));
-        TEXT_PANEL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TEXT_LBL.setFont(new java.awt.Font("Poppins", 1, 80)); // NOI18N
-        TEXT_LBL.setForeground(java.awt.Color.black);
-        TEXT_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TEXT_LBL.setText("A");
-        TEXT_LBL.setMaximumSize(new java.awt.Dimension(90, 43));
-        TEXT_PANEL.add(TEXT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 300));
-
-        jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
-
-        ASIDE_PNL.setBackground(new java.awt.Color(255, 153, 204));
-
-        LEADERBOARD_BTN.setBackground(new java.awt.Color(102, 0, 0));
-        LEADERBOARD_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        LEADERBOARD_BTN.setText("LEADERBOARD");
-        LEADERBOARD_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        LEADERBOARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LEADERBOARD_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LEADERBOARD_BTNActionPerformed(evt);
-            }
-        });
-
-        USERNAME_BTN.setBackground(new java.awt.Color(51, 85, 140));
-        USERNAME_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        USERNAME_BTN.setText("CHANGE USER");
-        USERNAME_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        USERNAME_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        USERNAME_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                USERNAME_BTNActionPerformed(evt);
-            }
-        });
-
-        USERNAME_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        USERNAME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        USERNAME_LBL.setText("ADMIN");
-
-        USER_IMG_LBL.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        USER_IMG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        USER_IMG_LBL.setText("NO IMAGE");
-
-        MUSIC_TGGLE.setBackground(new java.awt.Color(102, 0, 0));
-        MUSIC_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        MUSIC_TGGLE.setText("MUSIC ON");
-        MUSIC_TGGLE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        MUSIC_TGGLE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MUSIC_TGGLE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MUSIC_TGGLEActionPerformed(evt);
-            }
-        });
-
-        EXIT_TYPEE.setBackground(new java.awt.Color(153, 153, 0));
-        EXIT_TYPEE.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        EXIT_TYPEE.setText("EXIT");
-        EXIT_TYPEE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        EXIT_TYPEE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        EXIT_TYPEE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EXIT_TYPEEActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ASIDE_PNLLayout = new javax.swing.GroupLayout(ASIDE_PNL);
-        ASIDE_PNL.setLayout(ASIDE_PNLLayout);
-        ASIDE_PNLLayout.setHorizontalGroup(
-            ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ASIDE_PNLLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(USERNAME_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EXIT_TYPEE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
-        );
-        ASIDE_PNLLayout.setVerticalGroup(
-            ASIDE_PNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ASIDE_PNLLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(USERNAME_LBL)
-                .addGap(43, 43, 43)
-                .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(EXIT_TYPEE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-
-        jPanel1.add(ASIDE_PNL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 260, 710));
-
-        CURRENTUSER_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        CURRENTUSER_LBL.setForeground(java.awt.Color.black);
-        CURRENTUSER_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        CURRENTUSER_LBL.setText("USER : Muhammad Idris");
-        jPanel1.add(CURRENTUSER_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
-
-        HIGHAVERAGE_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        HIGHAVERAGE_LBL.setForeground(java.awt.Color.black);
-        HIGHAVERAGE_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        HIGHAVERAGE_LBL.setText("HIGH AVERAGE : 0wpm");
-        jPanel1.add(HIGHAVERAGE_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 300, 30));
+        jPanel1.add(TYPE_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 850, 70));
 
         REPLAY_BTN.setBackground(new java.awt.Color(51, 255, 153));
         REPLAY_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        REPLAY_BTN.setForeground(java.awt.Color.black);
-        REPLAY_BTN.setText("REPLAY");
+        REPLAY_BTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/image 5.png"))); // NOI18N
         REPLAY_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         REPLAY_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         REPLAY_BTN.addActionListener(new java.awt.event.ActionListener() {
@@ -521,44 +429,26 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
                 REPLAY_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, 180, 60));
+        jPanel1.add(REPLAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 90, 70));
 
-        EASY_BTN.setBackground(new java.awt.Color(0, 0, 205));
-        EASY_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        EASY_BTN.setText("EASY");
-        EASY_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        EASY_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        EASY_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EASY_BTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(EASY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 180, 60));
+        TIME_LBL.setBackground(new java.awt.Color(51, 237, 142));
+        TIME_LBL.setFont(new java.awt.Font("Poppins ExtraBold", 1, 48)); // NOI18N
+        TIME_LBL.setForeground(java.awt.Color.black);
+        TIME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TIME_LBL.setText("60");
+        jPanel1.add(TIME_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 103, -1));
 
-        HARD_BTN.setBackground(new java.awt.Color(0, 0, 120));
-        HARD_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        HARD_BTN.setText("HARD");
-        HARD_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        HARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        HARD_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HARD_BTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(HARD_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 50, 180, 60));
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Group 1.png"))); // NOI18N
+        jPanel1.add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 760));
 
-        MEDIUM_BTN.setBackground(new java.awt.Color(0, 0, 153));
-        MEDIUM_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        MEDIUM_BTN.setSelected(true);
-        MEDIUM_BTN.setText("MEDIUM");
-        MEDIUM_BTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        MEDIUM_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MEDIUM_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MEDIUM_BTNActionPerformed(evt);
-            }
-        });
-        jPanel1.add(MEDIUM_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, 180, 60));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Backgorund1.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        USERNAME_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        USERNAME_LBL.setForeground(java.awt.Color.black);
+        USERNAME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        USERNAME_LBL.setText("HIGH AVERAGE : 0wpm");
+        jPanel1.add(USERNAME_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -576,76 +466,24 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TYPE_TEXTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TYPE_TEXTFocusGained
-        // TODO add your handling code here:
-        TYPE_TEXT.setBackground(Color.white);
-        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, java.awt.Color.black));
-    }//GEN-LAST:event_TYPE_TEXTFocusGained
-
-    private void TYPE_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TYPE_TEXTKeyReleased
-        // TODO add your handling code here:
-        String TYPE = TYPE_TEXT.getText();
-        START(TYPE);
-        TYPE_CHECKER(TYPE);
-    }//GEN-LAST:event_TYPE_TEXTKeyReleased
-
-    private void LEADERBOARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEADERBOARD_BTNActionPerformed
-        // TODO add your handling code here:
-        LeaderBoard LEADERBOARD = new LeaderBoard(EASY_, MEDIUM_, HARD_);
-//                LEADERBOARD.USER();
-//                LEADERBOARD.LEADERBOARD_EASY(EASY);
-        LEADERBOARD.setLocationRelativeTo(null);
-        LEADERBOARD.setVisible(true);
-    }//GEN-LAST:event_LEADERBOARD_BTNActionPerformed
-
-    private void USERNAME_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERNAME_BTNActionPerformed
-        // TODO add your handling code here:
-        Login CHANGE_USER = new Login();
-        CHANGE_USER.USER(EASY_, MEDIUM_, HARD_);
-        CHANGE_USER.setLocationRelativeTo(null);
-        CHANGE_USER.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_USERNAME_BTNActionPerformed
-
-    private void MUSIC_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MUSIC_TGGLEActionPerformed
-        // TODO add your handling code here:
-        MUSIC_ON_OFF++;
-        if (MUSIC_ON_OFF % 2 == 0) {
-            MUSIC_TGGLE.setText("MUSIC OFF");
-        } else {
-            MUSIC_TGGLE.setText("MUSIC ON");
-        }
-    }//GEN-LAST:event_MUSIC_TGGLEActionPerformed
-
-    private void EXIT_TYPEEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXIT_TYPEEActionPerformed
+    private void EXIT_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EXIT_LBLMouseClicked
         // TODO add your handling code here:
         int EXIT_OR_NO = JOptionPane.showConfirmDialog(null, "ANDA INGIN KELUAR ?", "EXIT", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (EXIT_OR_NO == 0) {
             this.dispose();
         }
-    }//GEN-LAST:event_EXIT_TYPEEActionPerformed
+    }//GEN-LAST:event_EXIT_LBLMouseClicked
 
-    private void REPLAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REPLAY_BTNActionPerformed
+    private void ACCOUNT_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ACCOUNT_LBLMouseClicked
         // TODO add your handling code here:
-        REPLAY();
-    }//GEN-LAST:event_REPLAY_BTNActionPerformed
-
-    private void EASY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EASY_BTNActionPerformed
-        // TODO add your handling code here:
-        String USERNAME = USERNAME_LBL.getText();
-        Type_Easy EASY = new Type_Easy();
-        EASY.USER(USERNAME, EASY_, MEDIUM_, HARD_);
-        EASY.setLocationRelativeTo(null);
-        EASY.setVisible(true);
+        Login LOGIN = new Login();
+        LOGIN.USER(EASY_, MEDIUM_, HARD_);
+        LOGIN.setLocationRelativeTo(null);
+        LOGIN.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_EASY_BTNActionPerformed
+    }//GEN-LAST:event_ACCOUNT_LBLMouseClicked
 
-    private void MEDIUM_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEDIUM_BTNActionPerformed
-        // TODO add your handling code here:
-        MEDIUM_BTN.setSelected(true);
-    }//GEN-LAST:event_MEDIUM_BTNActionPerformed
-
-    private void HARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HARD_BTNActionPerformed
+    private void HARD_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HARD_LBLMouseClicked
         // TODO add your handling code here:
         String USERNAME = USERNAME_LBL.getText();
         Type_Hard HARD = new Type_Hard();
@@ -653,7 +491,40 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         HARD.setLocationRelativeTo(null);
         HARD.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_HARD_BTNActionPerformed
+    }//GEN-LAST:event_HARD_LBLMouseClicked
+
+    private void MEDIUM_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MEDIUM_LBLMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MEDIUM_LBLMouseClicked
+
+    private void EASY_LBLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EASY_LBLMouseClicked
+        // TODO add your handling code here:
+        String USERNAME = USERNAME_LBL.getText();
+        Type_Easy EASY = new Type_Easy();
+        EASY.USER(USERNAME, EASY_, MEDIUM_, HARD_);
+        EASY.setLocationRelativeTo(null);
+        EASY.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_EASY_LBLMouseClicked
+
+    private void TYPE_TEXTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TYPE_TEXTFocusGained
+        // TODO add your handling code here:
+        TYPE_TEXT.setBackground(Color.white);
+        TYPE_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.red));
+    }//GEN-LAST:event_TYPE_TEXTFocusGained
+
+    private void TYPE_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TYPE_TEXTKeyReleased
+        // TODO add your handling code here:
+        String TYPE = TYPE_TEXT.getText();
+        START(TYPE);
+        TYPE_CHECKER(TYPE);
+        END();
+    }//GEN-LAST:event_TYPE_TEXTKeyReleased
+
+    private void REPLAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REPLAY_BTNActionPerformed
+        // TODO add your handling code here:
+        REPLAY();
+    }//GEN-LAST:event_REPLAY_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -691,30 +562,26 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ACCOUNT_LBL;
     private javax.swing.JLabel ACCURACY_LBL;
-    private javax.swing.JPanel ASIDE_PNL;
-    private javax.swing.JLabel AVERAGE_LBL;
     private javax.swing.JLabel AVG_LBL;
+    private javax.swing.JLabel BG;
     private javax.swing.JLabel CURRENTUSER_LBL;
-    private javax.swing.JToggleButton EASY_BTN;
-    private javax.swing.JButton EXIT_TYPEE;
-    private javax.swing.JToggleButton HARD_BTN;
-    private javax.swing.JLabel HIGHAVERAGE_LBL;
+    private javax.swing.JLabel EASY_LBL;
+    private javax.swing.JLabel EXIT_LBL;
+    private javax.swing.JLabel HARD_LBL;
+    private javax.swing.JLabel HIGHAVERAGE_LBL1;
     private javax.swing.JLabel KEYSTROKES_LBL;
-    private javax.swing.JButton LEADERBOARD_BTN;
-    private javax.swing.JToggleButton MEDIUM_BTN;
-    private javax.swing.JToggleButton MUSIC_TGGLE;
+    private javax.swing.JLabel MEDIUM_LBL;
     private javax.swing.JButton REPLAY_BTN;
     private javax.swing.JLabel TEXT_LBL;
     private javax.swing.JPanel TEXT_PANEL;
     private javax.swing.JLabel TIME_LBL;
-    private javax.swing.JPanel TIME_PNL;
     private javax.swing.JTextField TYPE_TEXT;
-    private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JLabel USERNAME_LBL;
-    private javax.swing.JLabel USER_IMG_LBL;
-    private javax.swing.JLabel WPM_LBL;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

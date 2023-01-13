@@ -107,8 +107,6 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         }
 
         // IMAGE
-        USER_IMG_LBL.setText("" + USERNAME);
-        WPM_LBL.setText(HARD_ + " ");
     }
 
     void START(String TYPE) {
@@ -338,11 +336,8 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         TEXT_LBL5 = new javax.swing.JLabel();
         TEXT_LBL6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        LEADERBOARD_BTN = new javax.swing.JButton();
         USERNAME_BTN = new javax.swing.JButton();
         USERNAME_LBL = new javax.swing.JLabel();
-        USER_IMG_LBL = new javax.swing.JLabel();
-        MUSIC_TGGLE = new javax.swing.JToggleButton();
         EXIT_TYPEE = new javax.swing.JButton();
         CURRENTUSER_LBL = new javax.swing.JLabel();
         HIGHAVERAGE_LBL = new javax.swing.JLabel();
@@ -482,32 +477,32 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         TEXT_PANEL.setMaximumSize(new java.awt.Dimension(32767000, 32767));
         TEXT_PANEL.setMinimumSize(new java.awt.Dimension(900, 900));
 
-        TEXT_LBL1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL1.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL1.setForeground(java.awt.Color.white);
         TEXT_LBL1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL1.setText("jLabel1");
 
-        TEXT_LBL2.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL2.setForeground(java.awt.Color.white);
         TEXT_LBL2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL2.setText("jLabel1");
 
-        TEXT_LBL3.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL3.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL3.setForeground(java.awt.Color.white);
         TEXT_LBL3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL3.setText("jLabel1");
 
-        TEXT_LBL4.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL4.setForeground(java.awt.Color.white);
         TEXT_LBL4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL4.setText("jLabel1");
 
-        TEXT_LBL5.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL5.setForeground(java.awt.Color.white);
         TEXT_LBL5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL5.setText("jLabel1");
 
-        TEXT_LBL6.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        TEXT_LBL6.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         TEXT_LBL6.setForeground(java.awt.Color.white);
         TEXT_LBL6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TEXT_LBL6.setText("jLabel1");
@@ -529,12 +524,12 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                 .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(TEXT_LBL5)
                     .addComponent(TEXT_LBL6))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(412, Short.MAX_VALUE))
         );
         TEXT_PANELLayout.setVerticalGroup(
             TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TEXT_PANELLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(78, 78, 78)
                 .addGroup(TEXT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(TEXT_LBL1)
                     .addComponent(TEXT_LBL3)
@@ -544,23 +539,12 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
                     .addComponent(TEXT_LBL2)
                     .addComponent(TEXT_LBL4)
                     .addComponent(TEXT_LBL6))
-                .addContainerGap(682, Short.MAX_VALUE))
+                .addContainerGap(695, Short.MAX_VALUE))
         );
 
         jPanel1.add(TEXT_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 810, 300));
 
         jPanel5.setBackground(new java.awt.Color(255, 153, 204));
-
-        LEADERBOARD_BTN.setBackground(new java.awt.Color(102, 0, 0));
-        LEADERBOARD_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        LEADERBOARD_BTN.setText("LEADERBOARD");
-        LEADERBOARD_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        LEADERBOARD_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LEADERBOARD_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LEADERBOARD_BTNActionPerformed(evt);
-            }
-        });
 
         USERNAME_BTN.setBackground(new java.awt.Color(51, 85, 140));
         USERNAME_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -574,23 +558,9 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         });
 
         USERNAME_LBL.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        USERNAME_LBL.setForeground(java.awt.Color.black);
         USERNAME_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         USERNAME_LBL.setText("ADMIN");
-
-        USER_IMG_LBL.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        USER_IMG_LBL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        USER_IMG_LBL.setText("NO IMAGE");
-
-        MUSIC_TGGLE.setBackground(new java.awt.Color(102, 0, 0));
-        MUSIC_TGGLE.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        MUSIC_TGGLE.setText("MUSIC ON");
-        MUSIC_TGGLE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        MUSIC_TGGLE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MUSIC_TGGLE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MUSIC_TGGLEActionPerformed(evt);
-            }
-        });
 
         EXIT_TYPEE.setBackground(new java.awt.Color(153, 153, 0));
         EXIT_TYPEE.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
@@ -610,10 +580,7 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(USERNAME_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EXIT_TYPEE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
@@ -621,17 +588,11 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(USER_IMG_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(122, 122, 122)
                 .addComponent(USERNAME_LBL)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(USERNAME_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(LEADERBOARD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(MUSIC_TGGLE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(232, 232, 232)
                 .addComponent(EXIT_TYPEE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -731,15 +692,6 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         TYPE_CHECKER(TYPE);
     }//GEN-LAST:event_TYPE_TEXTKeyReleased
 
-    private void LEADERBOARD_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEADERBOARD_BTNActionPerformed
-        // TODO add your handling code here:
-        LeaderBoard LEADERBOARD = new LeaderBoard(EASY_, MEDIUM_, HARD_);
-        //        LEADERBOARD.USER();
-        //        LEADERBOARD.LEADERBOARD_EASY(EASY);
-        LEADERBOARD.setLocationRelativeTo(null);
-        LEADERBOARD.setVisible(true);
-    }//GEN-LAST:event_LEADERBOARD_BTNActionPerformed
-
     private void USERNAME_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERNAME_BTNActionPerformed
         // TODO add your handling code here:
         Login CHANGE_USER = new Login();
@@ -748,16 +700,6 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         CHANGE_USER.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_USERNAME_BTNActionPerformed
-
-    private void MUSIC_TGGLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MUSIC_TGGLEActionPerformed
-        // TODO add your handling code here:
-        MUSIC_ON_OFF++;
-        if (MUSIC_ON_OFF % 2 == 0) {
-            MUSIC_TGGLE.setText("MUSIC OFF");
-        } else {
-            MUSIC_TGGLE.setText("MUSIC ON");
-        }
-    }//GEN-LAST:event_MUSIC_TGGLEActionPerformed
 
     private void EXIT_TYPEEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXIT_TYPEEActionPerformed
         // TODO add your handling code here:
@@ -851,9 +793,7 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     private javax.swing.JToggleButton HARD_BTN;
     private javax.swing.JLabel HIGHAVERAGE_LBL;
     private javax.swing.JLabel KEYSTROKES_LBL;
-    private javax.swing.JButton LEADERBOARD_BTN;
     private javax.swing.JToggleButton MEDIUM_BTN;
-    private javax.swing.JToggleButton MUSIC_TGGLE;
     private javax.swing.JButton REPLAY_BTN;
     private javax.swing.JLabel TEXT_LBL1;
     private javax.swing.JLabel TEXT_LBL2;
@@ -866,7 +806,6 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
     private javax.swing.JTextField TYPE_TEXT;
     private javax.swing.JButton USERNAME_BTN;
     private javax.swing.JLabel USERNAME_LBL;
-    private javax.swing.JLabel USER_IMG_LBL;
     private javax.swing.JLabel WPM_LBL;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
