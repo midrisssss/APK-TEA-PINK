@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class Home extends javax.swing.JFrame {
 
-    ArrayList<String> EASY_ = new ArrayList<>();
-    ArrayList<String> MEDIUM_ = new ArrayList<>();
-    ArrayList<String> HARD_ = new ArrayList<>();
+    ArrayList<String> EASY_;
+    ArrayList<String> MEDIUM_;
+    ArrayList<String> HARD_;
 
     /**
      * Creates new form Home
@@ -25,7 +25,6 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         setExtendedState(Home.MAXIMIZED_BOTH);
-        setVisible(true);
     }
 
     public void USER(ArrayList<String> EASY, ArrayList<String> MEDIUM, ArrayList<String> HARD) {
@@ -33,9 +32,7 @@ public class Home extends javax.swing.JFrame {
             EASY_ = EASY;
             MEDIUM_ = MEDIUM;
             HARD_ = HARD;
-//            ALERT_LBL.setText("" + EASY_);
         } catch (IndexOutOfBoundsException e) {
-
         }
     }
 
@@ -58,15 +55,16 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(241, 233, 222));
-        jPanel3.setPreferredSize(new java.awt.Dimension(1500, 1000));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1400, 900));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\OneDrive\\Documents\\NetBeansProjects\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\iconImage\\logo.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/logo.png"))); // NOI18N
 
         START_BTN.setBackground(new java.awt.Color(142, 169, 108));
         START_BTN.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         START_BTN.setForeground(new java.awt.Color(255, 255, 255));
         START_BTN.setText("Start Type");
         START_BTN.setBorder(null);
+        START_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         START_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 START_BTNActionPerformed(evt);
@@ -85,7 +83,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(571, 571, 571)
                         .addComponent(START_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(494, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +92,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(START_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(368, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -50,13 +50,17 @@ public class Type_Medium extends javax.swing.JFrame implements Runnable {
         EASY_ = EASY;
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
-        int USER_SAMA = MEDIUM_.indexOf(USERNAME);
-        if (USER_SAMA == -1) {
-            CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
-        } else {
-            double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
-            CURRENTUSER_LBL.setText("USER : " + MEDIUM_.get(USER_SAMA));
-            HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+        try {
+            int USER_SAMA = MEDIUM_.indexOf(USERNAME);
+            if (USER_SAMA == -1) {
+                CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
+            } else {
+                double HIGHSCOREEE = Double.parseDouble(MEDIUM_.get(USER_SAMA + 1));
+                CURRENTUSER_LBL.setText("USER : " + MEDIUM_.get(USER_SAMA));
+                HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+            }
+        } catch (Exception e) {
+
         }
         // IMAGE
         USER_IMG_LBL.setText("" + USERNAME);

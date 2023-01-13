@@ -12,9 +12,9 @@ public class Lirik_Lagu {
 
     String LIRIK_LAGU = null; // LIRIK LAGU FULL
 
-    public String Lirik_Lagu(int number) {
+    public Lirik_Lagu() {
 
-        int LAGU_RANDOM = (int) (Math.random() * number);
+        int LAGU_RANDOM = (int) (Math.random() * 19);
 
         String a = "Kau .bisa .patahkan .kakiku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .lumpuhkan .tanganku, .Tapi .tidak .mimpi-mimpiku, .Kau .bisa .merebut .senyumku, .Tapi .sungguh .tak .akan .lama, .Kau .bisa .merobek .hatiku, .Tapi .aku .tahu .obatnya";
         String b = "Berdiri .ku .memutar .waktu, .Teringat .kamu .yang .dulu, .Ada .di .sampingku .setiap .hari, .Jadi .sandaran .ternyaman, .Saat .ku .lemah .saat .ku .lelah, .Tersadar .kutinggal .sendiri, .Merenungi .semua .yang .tak .mungkin, .Bisa .kuputarkan .kembali .seperti .dulu, .Kubahagia";
@@ -78,6 +78,5 @@ public class Lirik_Lagu {
             default -> {
             }
         }
-        return LIRIK_LAGU;
     }
 }

@@ -16,26 +16,29 @@ import javax.swing.*;
  */
 public class Login extends javax.swing.JFrame {
 
-    ArrayList<String> EASY_ = new ArrayList<>();
-    ArrayList<String> MEDIUM_ = new ArrayList<>();
-    ArrayList<String> HARD_ = new ArrayList<>();
+    // DEKLARASI 3 ARRAY EASY, MEDIUM, DAN HARD 
+    ArrayList<String> EASY_;
+    ArrayList<String> MEDIUM_;
+    ArrayList<String> HARD_;
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-        
+        setExtendedState(Home.MAXIMIZED_BOTH);
+
     }
 
     public void USER(ArrayList<String> EASY, ArrayList<String> MEDIUM, ArrayList<String> HARD) {
         try {
+            // INIZIALIZATION 3 ARRAY
             EASY_ = EASY;
             MEDIUM_ = MEDIUM;
             HARD_ = HARD;
 //            ALERT_LBL.setText("" + EASY_);
         } catch (IndexOutOfBoundsException e) {
-
+            System.out.println("ARRAY IS NOT EMPTY");
         }
     }
 
@@ -49,33 +52,32 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TP_LBL = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         LOGIN_BTN = new javax.swing.JButton();
         USERNAME_TEXT = new javax.swing.JTextField();
         ALERT_LBL = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEA-PINK");
+        setBackground(new java.awt.Color(93, 120, 58));
+        setPreferredSize(new java.awt.Dimension(1380, 900));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
+        jPanel1.setBackground(new java.awt.Color(93, 120, 58));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1400, 900));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1500, 1000));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TP_LBL.setFont(new java.awt.Font("Lemon Days", 1, 40)); // NOI18N
-        TP_LBL.setForeground(new java.awt.Color(102, 0, 0));
-        TP_LBL.setText("TEA-PINK");
-        jPanel1.add(TP_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 12, -1, 60));
-
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel2.setText("LOGIN");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 181, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Username");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 350, -1));
 
-        LOGIN_BTN.setBackground(new java.awt.Color(0, 153, 153));
+        LOGIN_BTN.setBackground(new java.awt.Color(87, 125, 38));
         LOGIN_BTN.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        LOGIN_BTN.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Videos\\idris\\@MATKUL\\dashpro\\APK-TEA-PINK\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\icon\\photo.png")); // NOI18N
         LOGIN_BTN.setText("Log In");
         LOGIN_BTN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LOGIN_BTN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -84,15 +86,16 @@ public class Login extends javax.swing.JFrame {
                 LOGIN_BTNActionPerformed(evt);
             }
         });
-        jPanel1.add(LOGIN_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 421, 130, 37));
+        jPanel1.add(LOGIN_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, 130, 37));
 
-        USERNAME_TEXT.setBackground(java.awt.Color.white);
+        USERNAME_TEXT.setBackground(new java.awt.Color(200, 224, 168));
         USERNAME_TEXT.setColumns(15);
         USERNAME_TEXT.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         USERNAME_TEXT.setForeground(java.awt.Color.gray);
         USERNAME_TEXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         USERNAME_TEXT.setText("USERNAME");
-        USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(101, 131, 62), null));
+        USERNAME_TEXT.setCaretColor(new java.awt.Color(101, 131, 62));
         USERNAME_TEXT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 USERNAME_TEXTFocusGained(evt);
@@ -106,36 +109,44 @@ public class Login extends javax.swing.JFrame {
                 USERNAME_TEXTKeyReleased(evt);
             }
         });
-        jPanel1.add(USERNAME_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 217, 46));
+        jPanel1.add(USERNAME_TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 350, 46));
 
         ALERT_LBL.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        ALERT_LBL.setForeground(java.awt.Color.black);
+        ALERT_LBL.setForeground(new java.awt.Color(0, 255, 204));
         ALERT_LBL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ALERT_LBL.setText("* Maximum 15 Character");
-        jPanel1.add(ALERT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+        jPanel1.add(ALERT_LBL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 350, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Videos\\idris\\@MATKUL\\dashpro\\APK-TEA-PINK\\APK-TEA-PINK\\TEA-PINK\\src\\main\\java\\com\\mycompany\\tea\\pink\\icon\\photo.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 430));
+        jLabel3.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Component 3.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 1100, 650));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/tea/pink/iconImage/Backgorund1.png"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(1370, 900));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 900));
+
+        jLabel4.setText("jLabel4");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void LOGIN_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGIN_BTNActionPerformed
-        // TODO add your handling code here:
         String USERNAME = USERNAME_TEXT.getText();
 
         if (USERNAME.equals("") || USERNAME.equals("USERNAME")) {
@@ -155,10 +166,10 @@ public class Login extends javax.swing.JFrame {
 
     private void USERNAME_TEXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_USERNAME_TEXTKeyReleased
         // TODO add your handling code here:
+        String USERNAME = USERNAME_TEXT.getText();
+
         int a = evt.getKeyCode();
         if (a == 10) {
-            String USERNAME = USERNAME_TEXT.getText();
-
             if (USERNAME.equals("") || USERNAME.equals("USERNAME")) {
                 JOptionPane.showMessageDialog(null, "Username still Blank, PLease input username!", "A message", JOptionPane.OK_OPTION);
             } else {
@@ -174,8 +185,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
         try {
-            String USERNAME = USERNAME_TEXT.getText();
-            String USERNAME_15 = USERNAME.substring(0, 14);
+            String USERNAME_15 = USERNAME.substring(0, 14);  // GET USERNAME SUBSTRING OF 1 - 14
             if (USERNAME.length() >= 15) {
                 USERNAME_TEXT.setText(USERNAME_15);
             } else {
@@ -192,6 +202,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         USERNAME_TEXT.setText("");
         ALERT_LBL.setForeground(Color.black);
+        USERNAME_TEXT.setBackground(Color.white);
         USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
     }//GEN-LAST:event_USERNAME_TEXTFocusGained
 
@@ -201,6 +212,8 @@ public class Login extends javax.swing.JFrame {
         if (USERNAME.equals("")) {
             USERNAME_TEXT.setText("USERNAME");
         }
+        USERNAME_TEXT.setBackground(new java.awt.Color(200,224,168));
+
         USERNAME_TEXT.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, null));
         ALERT_LBL.setForeground(Color.black);
     }//GEN-LAST:event_USERNAME_TEXTFocusLost
@@ -244,10 +257,11 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ALERT_LBL;
     private javax.swing.JButton LOGIN_BTN;
-    private javax.swing.JLabel TP_LBL;
     private javax.swing.JTextField USERNAME_TEXT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

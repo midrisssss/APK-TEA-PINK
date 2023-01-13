@@ -93,15 +93,19 @@ public class Type_Hard extends javax.swing.JFrame implements Runnable {
         EASY_ = EASY;
         MEDIUM_ = MEDIUM;
         HARD_ = HARD;
+        try {
+            int USER_SAMA = HARD_.indexOf(USERNAME);
+            if (USER_SAMA == -1) {
+                CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
+            } else {
+                double HIGHSCOREEE = Double.parseDouble(HARD_.get(USER_SAMA + 1));
+                CURRENTUSER_LBL.setText("USER : " + HARD_.get(USER_SAMA));
+                HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
+            }
+        } catch (Exception e) {
 
-        int USER_SAMA = HARD_.indexOf(USERNAME);
-        if (USER_SAMA == -1) {
-            CURRENTUSER_LBL.setText("USER : " + USERNAME_LBL.getText());
-        } else {
-            double HIGHSCOREEE = Double.parseDouble(HARD_.get(USER_SAMA + 1));
-            CURRENTUSER_LBL.setText("USER : " + HARD_.get(USER_SAMA));
-            HIGHAVERAGE_LBL.setText("HIGH AVERAGE : " + (int) HIGHSCOREEE + "wpm");
         }
+
         // IMAGE
         USER_IMG_LBL.setText("" + USERNAME);
         WPM_LBL.setText(HARD_ + " ");
